@@ -54,17 +54,17 @@ Lessons held on #days ##:##-##:##.
 &nbsp;
 ## Evaluation criterias
 
-* Home assignments max. 10 points, accept level: all assignments are returned.
-* Exam max. 10 points, accept level 4 points
+* Home assignments max. 10 points, accept level 3 points.
+* Exam max. 10 points, accept level 2 points.
 
 | Points | Grade |
 |:--------|:----------:|
-| 0 - 4,5 | 0 |
-| 5 - 6,5 | 1 |
-| 7 - 10 | 2 |
-| 10,5 - 14 | 3 |
-| 14,5 - 18 | 4 |
-| 18,5 - 20 | 5 |
+| 0 - 4 | 0 |
+| 5 - 6 | 1 |
+| 7 - 9 | 2 |
+| 10 - 13 | 3 |
+| 14 - 17 | 4 |
+| 18 - 20 | 5 |
 
 
 &nbsp;
