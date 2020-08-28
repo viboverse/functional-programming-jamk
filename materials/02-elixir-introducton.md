@@ -3,12 +3,27 @@ Jani Immonen, D571
 jani.immonen@jamk.fi
 
 
+## **What is Functional programming?**
+
+From [Wikipedia](https://en.wikipedia.org/wiki/Functional_programming)
+
+In computer science, functional programming is a programming paradigm where programs are constructed by applying and composing functions. It is a declarative programming paradigm in which function definitions are trees of expressions that each return a value, rather than a sequence of imperative statements which change the state of the program.
+
+In functional programming, functions are treated as first-class citizens, meaning that they can be bound to names (including local identifiers), passed as arguments, and returned from other functions, just as any other data type can. This allows programs to be written in a declarative and composable style, where small functions are combined in a modular manner.
+
+Functional programming can be considered the opposite of object-oriented programming. Objects are little capsules containing some internal state along with a collection of method calls that let you modify this state, and programs consist of making the right set of state changes. Functional programming wants to avoid state changes as much as possible and works with data flowing between functions.
+
+
 ## **Elixir**
 Elixir is a dynamic, functional language designed for building scalable and maintainable applications.
 
 Elixir is built on top of *Erlang*. Erlang was created in Ericsson in the late eighties and became opensource in the late nineties. Since then Erlang has grown in popularity to build fault-tolerant real-time applications. Erlang is untyped, has garbage collection and works with message passing between processes. Today Erlang is more than a language as it has a virtual machine and a standard library focused in *concurrency*.
 
-Erlang powers some of the most scalable systems in the world. Probably the best example is WhatsApp, with millions and millions of messages by minute. [See how Rick Reed discusses how they acomplished this](http://www.erlang-factory.com/conference/SFBay2012/speakers/RickReed)
+Erlang powers some of the most scalable systems in the world. Probably the best example is WhatsApp, with millions and millions of messages by minute. [See how Rick Reed discusses how they acomplished this](https://www.erlang-solutions.com/blog/the-best-code-beam-sf-talks-from-the-2010s.html)
+
+José Valim, created the Elixir programming language as a research and development project of Plataformatec. His goals were to enable higher extensibility and productivity in the Erlang VM while keeping compatibility with Erlang's ecosystem.
+
+José Valim aimed to create a programming language for large-scale sites and apps. Being a Ruby developer, he used features of Ruby, Erlang, and Clojure to develop a high-concurrency and low-latency language. Elixir was designed to handle large data volumes. Its speed and capabilities spread Elixir in telecommunication, eCommerce, and finance industries.
 
 
 ## **Scalability**
