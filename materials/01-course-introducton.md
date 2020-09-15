@@ -5,7 +5,7 @@ jani.immonen@jamk.fi
 
 ## **Introduction**
 Welcome to Functional Programming course. Goal is to learn principles of functional programming and learn to write code using *Elixir* language.
-We use Microsoftin Visual Studio Code as source code editor, and rest of the tools are included in Elixir installation.
+We use Microsoft Visual Studio Code as source code editor, and rest of the tools are included in Erlang/Elixir installation.
 
 Course code: TTOW0410
 Extent: 6 credits
@@ -18,17 +18,27 @@ Extent: 6 credits
 - Data structures and algorithms
 - Introduction to Internet technology.
 
+
 &nbsp;
-## **Materials and presence**
+## **Required software**
+- [Elixir installation](https://elixir-lang.org/install.html)
+- [Git](https://git-scm.com/downloads)
+- [Visual Studio Code (optional)](https://code.visualstudio.com/)
+
+
+&nbsp;
+## **Materials**
 - All course materials are in JAMK labranet GitLab service.
     - You will need JAMK labranet credentials to access the materials.
     - It is possible to use other Git service for your own repository.
 - All materials are in English.
-- All lessons are held on schedule as Teams meetings. Meetings are saved for later viewing. Participation to lessons voluntary but recommended.
+- All lessons are held on schedule as Teams meetings. Meetings are saved for later viewing.
 
 &nbsp;
 ## **Assignments**
 Course materials contain 10 home assignments and an exam.
+
+Final return day of home assignments is 14.12.2020.
 
 &nbsp;
 ## **Grading**

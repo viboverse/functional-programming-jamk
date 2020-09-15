@@ -3,17 +3,7 @@ Jani Immonen, D571
 jani.immonen@jamk.fi
 
 
-## **What is Functional programming?**
-
-From [Wikipedia](https://en.wikipedia.org/wiki/Functional_programming)
-
-In computer science, functional programming is a programming paradigm where programs are constructed by applying and composing functions. It is a declarative programming paradigm in which function definitions are trees of expressions that each return a value, rather than a sequence of imperative statements which change the state of the program.
-
-In functional programming, functions are treated as first-class citizens, meaning that they can be bound to names (including local identifiers), passed as arguments, and returned from other functions, just as any other data type can. This allows programs to be written in a declarative and composable style, where small functions are combined in a modular manner.
-
-Functional programming can be considered the opposite of object-oriented programming. Objects are little capsules containing some internal state along with a collection of method calls that let you modify this state, and programs consist of making the right set of state changes. Functional programming wants to avoid state changes as much as possible and works with data flowing between functions.
-
-
+&nbsp;
 ## **Elixir**
 Elixir is a dynamic, functional language designed for building scalable and maintainable applications.
 
@@ -26,6 +16,13 @@ José Valim, created the Elixir programming language as a research and developme
 José Valim aimed to create a programming language for large-scale sites and apps. Being a Ruby developer, he used features of Ruby, Erlang, and Clojure to develop a high-concurrency and low-latency language. Elixir was designed to handle large data volumes. Its speed and capabilities spread Elixir in telecommunication, eCommerce, and finance industries.
 
 
+&nbsp;
+## **Installation**
+Install Elixir to your computer. Installer contains all necessary compoments to develop Elixir applications.
+- [Elixir installation](https://elixir-lang.org/install.html)
+
+
+&nbsp;
 ## **Scalability**
 All Elixir code runs inside lightweight threads of execution (called processes) that are isolated and exchange information via messages:
 
@@ -45,6 +42,7 @@ Due to their lightweight nature, it is not uncommon to have hundreds of thousand
 
 Processes are also able to communicate with other processes running on different machines in the same network. This provides the foundation for distribution, allowing developers to coordinate work across multiple nodes (horizontal scaling).
 
+&nbsp;
 ## **Fault-tolerance**
 The unavoidable truth about software running in production is that things will go wrong. Even more when we take network, file systems, and other third-party resources into account.
 
@@ -60,8 +58,10 @@ To cope with failures, Elixir provides supervisors which describe how to restart
 The combination of scalability, fault-tolerance, and event-driven programming via message passing makes Elixir an excellent choice for Reactive Programming and Architectures.
 
 
+&nbsp;
 ## **Language features**
 
+&nbsp;
 ### **Functional programming**
 Functional programming promotes a coding style that helps developers write code that is short, concise, and maintainable. For example, pattern matching allows developers to easily destructure data and access its contents:
 
@@ -80,7 +80,8 @@ When mixed with guards, pattern matching allows us to elegantly match and assert
 Elixir relies heavily on those features to ensure your software is working under the expected constraints. And when it is not, don't worry, supervisors have your back!
 
 
-### **Extensibility and DSLs**
+&nbsp;
+### **Extensibility**
 Elixir has been designed to be extensible, letting developers naturally extend the language to particular domains, in order to increase their productivity.
 As an example, let's write a simple test case using Elixir's test framework called ExUnit:
 
@@ -95,6 +96,7 @@ As an example, let's write a simple test case using Elixir's test framework call
 The **async: true** option allows tests to run in parallel, using as many CPU cores as possible, while the assert functionality can introspect your code, providing great reports in case of failures. Those features are built using Elixir macros, making it possible to add new constructs as if they were part of the language itself.
 
 
+&nbsp;
 ### **Tooling features**
 Elixir ships with a great set of tools to ease development. [Mix is a build tool](https://hexdocs.pm/mix/) that allows you to easily create projects, manage tasks, run tests and more:
 
@@ -122,7 +124,44 @@ Elixir runs on the Erlang VM giving developers complete access to Erlang's ecosy
     iex> :crypto.hash(:md5, "Using crypto from Erlang OTP")
     <<192, 223, 75, 115, ...>>
 
+&nbsp;
+## **Hello Elixir**
+Course material will use Microsoft Visual Studio Code as source editor, but for now we execute Elixir scripts from command line. Lets create our first Elixir script:
 
+1. Choose a root folder for your materials.
+2. Open Visual Studio Code and use **Open Folder...** menu option to open your course root folder.
+3. Right click on Explorer and select **New Folder**. Create folder named **source**.
+4. Right click on **source** folder and select **New File**. Create file named **hello.exs**.
+5. Write Elixir code into **hello.exs** file:
+
+Code:
+
+    IO.puts "Hello from Elixir!"
+
+6. Open Command Prompt (Terminal) and cd into your root folder.
+7. Execute the **hello.exs** script.
+
+In Terminal:
+
+    elixir source/hello.exs
+
+
+&nbsp;
+## **Interactive Mode**
+Lets run the *iex*, which stands for Interactive Elixir. In interactive mode, we can type any Elixir expression and get its result. Type *iex* in command prompt and type the following expressions:
+
+    68 - 7
+    "Hello!"
+
+To exit *iex* press Ctrl+C twice.
+
+
+&nbsp;
 ## **Elixir, summary**
 Elixir is modern and powerful programming environment which is suitable especially for solving concurrent execution in efficient manner.
+
+
+&nbsp;
+----
+**© Jani Immonen**
 
