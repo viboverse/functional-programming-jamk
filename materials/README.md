@@ -25,27 +25,27 @@ Changes to schedule are announced here on this page.
 
 Lessons held on Tuesdays starting at 14:30.
 
-| Week | Classroom | Content | Assignments |
-|:--------|:----------:|---------|:-------------------:|
-| 36 | X | [Course Intruduction](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/01-course-introducton.md) | |
-| 36 | X | [Introduction to Functional Programming](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/02-fp-introducton.md) | |
-| 36 | X | [Elixir Programming Language](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/03-elixir-introducton.md) | |
-| 37 | X | [Basic types and operators](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/04-types.md) | |
-| 37 | X | [Operators](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/05-operators.md) | [Home assignment 1](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/assignments/home-assignment-01.md) |
-| 38 | X | [Pattern matching](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/06-pattern-matching.md) | [Home assignment 2](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/assignments/home-assignment-02.md) |
-| 39 | X | [Conditions](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/07-conditions.md) | [Home assignment 3](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/assignments/home-assignment-03.md) |
-| 40 | X | [String encoding, bitstrings and binaries](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/08-binaries.md) | |
-| 40 | X | [Keyword lists and Maps](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/09-keyword-list-and-map.md) | [Home assignment 4](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/assignments/home-assignment-04.md) |
-| 41 | X | [Modules and Functions](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/10-modules-and-functions.md) | [Home assignment 5](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/assignments/home-assignment-05.md) |
-| 42 | X | [Data structures](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/11-structs.md) | [Home assignment 6](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/assignments/home-assignment-06.md) |
-| 43 | X | [Processes and communication](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/12-process-comms.md) | [Home assignment 7](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/assignments/home-assignment-07.md) |
-| 44 | X | [Supervisor and Application](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/13-supervisor-and-application.md) | [Home assignment 8](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/assignments/home-assignment-08.md) |
-| 45 | X | **Self Studying Week** |
-| 46 | X | [Building applications](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/14-building-applications.md) | [Home assignment 9](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/assignments/home-assignment-09.md) |
-| 47 | X | [Web development with Phoenix](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/15-phoenix.md) | [Home assignment 10](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/assignments/home-assignment-10.md) |
-| 48 | X | Home assignments | |
-| 49 | X | Home assignments | |
-| 50 | X | **Exam** | |
+| Week | Content | Assignments |
+|:--------|---------|:-------------------:|
+| 36 | [Course Introduction](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/01-course-introducton.md) | |
+| 36 | [Introduction to Functional Programming](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/02-fp-introducton.md) | |
+| 36 | [Elixir Programming Language](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/03-elixir-introducton.md) | |
+| 37 | [Basic types and operators](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/04-types.md) | |
+| 37 | [Operators](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/05-operators.md) | [Home assignment 1](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/assignments/home-assignment-01.md) |
+| 38 | [Pattern matching](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/06-pattern-matching.md) | [Home assignment 2](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/assignments/home-assignment-02.md) |
+| 39 | [Conditions](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/07-conditions.md) | [Home assignment 3](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/assignments/home-assignment-03.md) |
+| 40 | [String encoding, bitstrings and binaries](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/08-binaries.md) | |
+| 40 | [Keyword lists and Maps](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/09-keyword-list-and-map.md) | [Home assignment 4](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/assignments/home-assignment-04.md) |
+| 41 | [Modules and Functions](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/10-modules-and-functions.md) | [Home assignment 5](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/assignments/home-assignment-05.md) |
+| 42 | [Data structures](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/11-structs.md) | [Home assignment 6](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/assignments/home-assignment-06.md) |
+| 43 | [Processes and communication](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/12-process-comms.md) | [Home assignment 7](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/assignments/home-assignment-07.md) |
+| 44 | [Supervisor and Application](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/13-supervisor-and-application.md) | [Home assignment 8](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/assignments/home-assignment-08.md) |
+| 45 | **Self Studying Week** |
+| 46 | [Building applications](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/14-building-applications.md) | [Home assignment 9](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/assignments/home-assignment-09.md) |
+| 47 | [Web development with Phoenix](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/15-phoenix.md) | [Home assignment 10](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/assignments/home-assignment-10.md) |
+| 48 | Home assignments | |
+| 49 | Home assignments | |
+| 50 | **Exam** | |
 
 
 &nbsp;
