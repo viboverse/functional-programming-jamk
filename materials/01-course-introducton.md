@@ -10,6 +10,8 @@ We use Microsoft Visual Studio Code as source code editor, and rest of the tools
 Course code: TTOW0410
 Extent: 6 credits
 
+The materials for basics of Elixir language are 99% based on Elixir homepage Getting Started Guide.
+
 
 &nbsp;
 ## **Prerequirements**
@@ -30,13 +32,14 @@ Extent: 6 credits
 ## **Materials**
 - All course materials are in JAMK labranet GitLab service.
     - You will need JAMK labranet credentials to access the materials.
-    - It is possible to use other Git service for your own repository.
 - All materials are in English.
 - All lessons are held on schedule as Teams meetings. Meetings are saved for later viewing.
 
 &nbsp;
 ## **Assignments**
 Course materials contain 10 home assignments and an exam.
+
+Store your home assingments in GitLab and return the link to your GitLab project into Moodle return box.
 
 Final return day of home assignments is 14.12.2020.
 
