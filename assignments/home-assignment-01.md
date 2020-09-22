@@ -27,7 +27,7 @@ This assignment consist of multiple parts. You can write the parts into same scr
 
 &nbsp;
 ### **Part 4**
-1. Write an anonymous function that takes three parameters and calculates an product (multiplication) of those three values.
+1. Write an anonymous function that takes three parameters and calculates a product (multiplication) of those three values.
 2. Ask three numbers from user (*use* **IO.gets** and **String.to_integer**) and pass them to your function created in step 1.
 3. Print the result to the console.
 4. Write an anonymous function that concats two lists and returns the result.
