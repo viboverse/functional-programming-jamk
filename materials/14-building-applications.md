@@ -5,6 +5,7 @@ jani.immonen@jamk.fi
 
 &nbsp;
 ## **Building applications**
+Coming soon!
 
 
 &nbsp;

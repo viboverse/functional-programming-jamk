@@ -5,7 +5,7 @@ jani.immonen@jamk.fi
 
 &nbsp;
 ## **Supervisor and Application**
-
+Coming soon!
 
 &nbsp;
 ----

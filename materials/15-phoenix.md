@@ -5,9 +5,10 @@ jani.immonen@jamk.fi
 
 &nbsp;
 ## **Phoenix**
+Coming soon!
 
 
 &nbsp;
 ----
-**© Elixir-Lang.org, Jani Immonen**
+**© Jani Immonen**
 
