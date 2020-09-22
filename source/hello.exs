@@ -5,8 +5,17 @@ defmodule Input do
   end
 end
 
-# use IO library 'puts' function to print text to the console
+number = 124
+
+if number == 124 do
+  IO.puts("Match #{number}")
+else
+  IO.puts("No match #{number}")
+end
+
 IO.puts "Hyvää Päivää!"
-str = Input.get_string "Gimme number: "
+str = IO.gets("Gimme number: ")
+str = String.trim(str)
 number = String.to_integer(str)
 IO.puts number
+

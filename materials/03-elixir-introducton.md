@@ -153,7 +153,7 @@ Lets run the *iex*, which stands for Interactive Elixir. In interactive mode, we
     68 - 7
     "Hello!"
 
-To exit *iex* press Ctrl+C twice.
+To exit *iex* type **System.halt** (or press Ctrl+C twice in Windows command prompt).
 
 
 &nbsp;

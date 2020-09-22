@@ -55,7 +55,7 @@ And also when comparing different types:
     iex> {a, b, c} = [:hello, "world", 42]
     ** (MatchError) no match of right hand side value: [:hello, "world", 42]
 
-More interestingly, we can match on specific values. The example below asserts that the left side will only match the right side when the right side is a tuple that starts with the atom **:ok:**
+More interestingly, we can match on specific values. The example below asserts that the left side will only match the right side when the right side is a tuple that starts with the atom **:ok**
 
     iex> {:ok, result} = {:ok, 13}
     {:ok, 13}
