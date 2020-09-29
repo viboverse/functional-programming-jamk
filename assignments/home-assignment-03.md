@@ -2,7 +2,24 @@
 
 &nbsp;
 ## **Home Assignment 3**
-Coming Soon!
+This assignment consist of multiple parts. You can write the parts into same script file right after another.
+
+&nbsp;
+### **Part 1**
+Implement a Elixir script that:
+- Ask a number from the user.
+- If given number is evenly divisible by 3, print *Divisible by 3*.
+- If given number is evenly divisible by 5, print *Divisible by 5*.
+- If given number is evenly divisible by 7, print *Divisible by 7*.
+- If given number is not evenly divisible by 3, 5 or 7, find smallest value that number is evenly divisible for and print that value to the output.
+
+&nbsp;
+### **Part 2**
+Write an anonymous function that takes two parameters:
+- Use a *guard* to check if both parameters are a string type. If so, return a combined string of the parameters.
+- If parameters are not strings, return the addition result of the parameters.
+- Test your anonymous function with string and number parameters and print the results.
+
 
 &nbsp;
 ----
