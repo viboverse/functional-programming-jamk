@@ -11,135 +11,134 @@ In this lesson, we will learn about the case, cond, and if control flow structur
 ### **case**
 **case** allows us to compare a value against many patterns until we find a matching one:
 
-    iex> case {1, 2, 3} do
-    ...>   {4, 5, 6} ->
-    ...>     "This clause won't match"
-    ...>   {1, x, 3} ->
-    ...>     "This clause will match and bind x to 2 in this clause"
-    ...>   _ ->
-    ...>     "This clause would match any value"
-    ...> end
+    case {1, 2, 3} do
+        {4, 5, 6} -> IO.puts "This clause won't match"
+        {1, x, 3} -> IO.puts "This clause will match and bind x to 2 in this clause"
+        _ -> IO.puts "This clause would match any value"
+    end
+
     "This clause will match and bind x to 2 in this clause"
 
 If you want to pattern match against an existing variable, you need to use the **^** operator:
 
-    iex> x = 1
-    1
-    iex> case 10 do
-    ...>   ^x -> "Won't match"
-    ...>   _ -> "Will match"
-    ...> end
+    x = 1
+    case 10 do
+        ^x -> IO.puts "Won't match"
+        _ -> IO.puts "Will match"
+    end
+
     "Will match"
 
 Clauses also allow extra conditions to be specified via guards:
 
-    iex> case {1, 2, 3} do
-    ...>   {1, x, 3} when x > 0 ->
-    ...>     "Will match"
-    ...>   _ ->
-    ...>     "Would match, if guard condition were not satisfied"
-    ...> end
+    case {1, 2, 3} do
+        {1, x, 3} when x > 0 -> IO.puts "Will match"
+        _ -> IO.puts "Would match, if guard condition were not satisfied"
+    end
+    
     "Will match"
 
 The first clause above will only match when **x** is positive.
 
 Keep in mind errors in guards do not leak but simply make the guard fail:
 
-    iex> hd(1)
+    hd(1)
     ** (ArgumentError) argument error
-    iex> case 1 do
-    ...>   x when hd(x) -> "Won't match"
-    ...>   x -> "Got #{x}"
-    ...> end
+    case 1 do
+        x when hd(x) -> IO.puts "Won't match"
+        x -> IO.puts "Got #{x}"
+    end
+    
     "Got 1"
 
 If none of the clauses match, an error is raised:
 
-    iex> case :ok do
-    ...>   :error -> "Won't match"
-    ...> end
+    case :ok do
+        :error -> IO.puts "Won't match"
+    end
+    
     ** (CaseClauseError) no case clause matching: :ok
 
 Consult the full documentation for guards for more information about guards, how they are used, and what expressions are allowed in them.
 
 Note anonymous functions can also have multiple clauses and guards:
 
-    iex> f = fn
-    ...>   x, y when x > 0 -> x + y
-    ...>   x, y -> x * y
-    ...> end
-    #Function<12.71889879/2 in :erl_eval.expr/5>
-    iex> f.(1, 3)
+    f = fn
+        x, y when x > 0 -> x + y
+        x, y -> x * y
+    end
+
+    IO.puts f.(1, 3)
+    IO.puts f.(-1, 3)
+
     4
-    iex> f.(-1, 3)
     -3
 
 The number of arguments in each anonymous function clause needs to be the same, otherwise an error is raised.
 
-    iex> f2 = fn
-    ...>   x, y when x > 0 -> x + y
-    ...>   x, y, z -> x * y + z
-    ...> end
+    f2 = fn
+        x, y when x > 0 -> x + y
+        x, y, z -> x * y + z
+    end
+
     ** (CompileError) iex:1: cannot mix clauses with different arities in anonymous functions
 
 &nbsp;
 ### **cond**
 **case** is useful when you need to match against different values. However, in many circumstances, we want to check different conditions and find the first one that does not evaluate to *nil* or *false*. In such cases, one may use **cond**:
 
-    iex> cond do
-    ...>   2 + 2 == 5 ->
-    ...>     "This will not be true"
-    ...>   2 * 2 == 3 ->
-    ...>     "Nor this"
-    ...>   1 + 1 == 2 ->
-    ...>     "But this will"
-    ...> end
+    cond do
+        2 + 2 == 5 -> IO.puts "This will not be true"
+        2 * 2 == 3 -> IO.puts "Nor this"
+        1 + 1 == 2 -> IO.puts "But this will"
+    end
+    
     "But this will"
 
 This is equivalent to else if clauses in many imperative languages, although used way less frequently in Elixir.
 
 If all of the conditions return *nil* or *false*, an error (*CondClauseError*) is raised. For this reason, it may be necessary to add a final condition, equal to **true**, which will always match:
 
-    iex> cond do
-    ...>   2 + 2 == 5 ->
-    ...>     "This is never true"
-    ...>   2 * 2 == 3 ->
-    ...>     "Nor this"
-    ...>   true ->
-    ...>     "This is always true (equivalent to else)"
-    ...> end
+    cond do
+        2 + 2 == 5 -> IO.puts "This is never true"
+        2 * 2 == 3 -> IO.puts "Nor this"
+        true -> IO.puts "This is always true (equivalent to else)"
+    end
+
     "This is always true (equivalent to else)"
 
 Finally, note **cond** considers any value besides *nil* and *false* to be true:
 
-    iex> cond do
-    ...>   hd([1, 2, 3]) ->
-    ...>     "1 is considered as true"
-    ...> end
+    cond do
+        hd([1, 2, 3]) -> IO.puts "1 is considered as true"
+    end
+    
     "1 is considered as true"
 
 &nbsp;
 ### **if and unless**
 Besides **case** and **cond**, Elixir also provides the macros **if/2** and **unless/2** which are useful when you need to check for only one condition:
 
-    iex> if true do
-    ...>   "This works!"
-    ...> end
+    if true do
+        IO.puts "This works!"
+    end
+
     "This works!"
-    iex> unless true do
-    ...>   "This will never be seen"
-    ...> end
-    nil
+
+    unless true do
+        IO.puts "This will never be seen"
+    end
 
 If the condition given to **if/2** returns *false* or *nil*, the body given between *do/end* is not executed and instead it returns *nil*. The opposite happens with **unless/2**.
 
 They also support else blocks:
 
-    iex> if nil do
-    ...>   "This won't be seen"
-    ...> else
-    ...>   "This will"
-    ...> end
+    if nil do
+        IO.puts "This won't be seen"
+    else
+        IO.puts "This will"
+    end
+    
     "This will"
 
 *Note: An interesting note regarding if/2 and unless/2 is that they are implemented as macros in the language; they aren't special language constructs as they would be in many languages. You can check the documentation and the source of if/2 in the Kernel module docs. The Kernel module is also where operators like +/2 and functions like is_function/2 are defined, all automatically imported and available in your code by default.*
@@ -148,48 +147,58 @@ They also support else blocks:
 ### **do/end blocks**
 At this point, we have learned four control structures: **case**, **cond**, **if**, and **unless**, and they were all wrapped in *do/end* blocks. It happens we could also write if as follows:
 
-    iex> if true, do: 1 + 2
+    if true, do: IO.puts 1 + 2
+    
     3
 
 Notice how the example above has a comma between *true* and *do:*, that's because it is using Elixir's regular syntax where each argument is separated by a comma. We say this syntax is using keyword lists. We can pass else using keywords too:
 
-    iex> if false, do: :this, else: :that
+    if false, do: IO.puts(:this), else: IO.puts(:that)
+    
     :that
 
 *do/end* blocks are a syntactic convenience built on top of the keywords. That's why *do/end* blocks do not require a comma between the previous argument and the block. They are useful exactly because they remove the verbosity when writing blocks of code. These are equivalent:
 
-    iex> if true do
-    ...>   a = 1 + 2
-    ...>   a + 10
-    ...> end
+    if true do
+        a = 1 + 2
+        a = a + 10
+        IO.puts a
+    end
+
     13
-    iex> if true, do: (
-    ...>   a = 1 + 2
-    ...>   a + 10
-    ...> )
+
+    if true, do: (
+        a = 1 + 2
+        a = a + 10
+    )
+
     13
 
 One thing to keep in mind when using do/end blocks is they are always bound to the outermost function call. For example, the following expression:
 
-    iex> is_number if true do
-    ...>  1 + 2
-    ...> end
+    is_number if true do
+        IO.puts 1 + 2
+    end
+    
     ** (CompileError) iex:1: undefined function is_number/2
-    Would be parsed as:
+    
+Would be parsed as:
 
-    iex> is_number(if true) do
-    ...>  1 + 2
-    ...> end
+    is_number(if true) do
+        IO.puts 1 + 2
+    end
+
     ** (CompileError) iex:1: undefined function is_number/2
 
 which leads to an undefined function error because that invocation passes two arguments, and **is_number/2** does not exist. The if true expression is invalid in itself because it needs the block, but since the arity of **is_number/2** does not match, Elixir does not even reach its evaluation.
 
 Adding explicit parentheses is enough to bind the block to if:
 
-    iex> is_number(if true do
-    ...>  1 + 2
-    ...> end)
-    true
+    is_number(if true do
+        IO.puts 1 + 3
+    end)
+
+    4
 
 &nbsp;
 ----
