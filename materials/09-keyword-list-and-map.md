@@ -142,7 +142,8 @@ When all the keys in a map are atoms, you can use the keyword syntax for conveni
 
     iex> map = %{a: 1, b: 2}
     %{a: 1, b: 2}
-    Another interesting property of maps is that they provide their own syntax for accessing atom keys:
+    
+Another interesting property of maps is that they provide their own syntax for accessing atom keys:
 
     iex> map = %{:a => 1, 2 => :b}
     %{2 => :b, :a => 1}
