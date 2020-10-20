@@ -46,7 +46,7 @@ Elixir projects are usually organized into three directories:
 
 * ebin - contains the compiled bytecode
 * lib - contains elixir code (usually .ex files)
-*test - contains tests (usually .exs files)
+* test - contains tests (usually .exs files)
 
 When working on actual projects, the build tool called mix will be responsible for compiling and setting up the proper paths for you. For learning purposes, Elixir also supports a scripted mode which is more flexible and does not generate any compiled artifacts.
 
