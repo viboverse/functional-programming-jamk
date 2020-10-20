@@ -68,7 +68,7 @@ And execute it as:
 
     $ elixir math.exs
 
-The file will be compiled in memory and executed, printing “3” as the result. No bytecode file will be created. In the following examples, we recommend you write your code into script files and execute them as shown above.
+The file will be compiled in memory and executed, printing *3* as the result. No bytecode file will be created.
 
 &nbsp;
 ### **Named functions**
@@ -119,47 +119,35 @@ And it will provide the same behaviour. You may use do: for one-liners but alway
 
 &nbsp;
 ### **Function capturing**
-We have been using the notation name/arity to refer to functions. It happens that this notation can actually be used to retrieve a named function as a function type. Start iex, running the math.exs file defined above:
+We have been using the notation name/arity to refer to functions. It happens that this notation can actually be used to retrieve a named function as a function type.
 
-    $ iex math.exs
-    iex> Math.zero?(0)
-    true
-    iex> fun = &Math.zero?/1
+    IO.puts Math.zero?(0)       #=> true
+    fun = &Math.zero?/1
     &Math.zero?/1
-    iex> is_function(fun)
-    true
-    iex> fun.(0)
-    true
+    IO.puts is_function(fun)    #=> true
+    IO.puts fun.(0)             #=> true
 
 Remember Elixir makes a distinction between anonymous functions and named functions, where the former must be invoked with a dot (.) between the variable name and parentheses. The capture operator bridges this gap by allowing named functions to be assigned to variables and passed as arguments in the same way we assign, invoke and pass anonymous functions.
 
 Local or imported functions, like is_function/1, can be captured without the module:
 
-    iex> &is_function/1
-    &:erlang.is_function/1
-    iex> (&is_function/1).(fun)
-    true
+    IO.puts &is_function/1          #=> &:erlang.is_function/1
+    IO.puts (&is_function/1).(fun)  #=> true
 
 Note the capture syntax can also be used as a shortcut for creating functions:
 
-    iex> fun = &(&1 + 1)
-    #Function<6.71889879/1 in :erl_eval.expr/5>
-    iex> fun.(1)
-    2
+    fun = &(&1 + 1)
+    IO.puts fun.(1)             #=> 2
 
-    iex> fun2 = &"Good #{&1}"
-    #Function<6.127694169/1 in :erl_eval.expr/5>
-    iex)> fun2.("morning")
-    "Good morning"
+    fun2 = &"Good #{&1}"
+    IO.puts fun2.("morning")    #=> "Good morning"
 
 The &1 represents the first argument passed into the function. &(&1 + 1) above is exactly the same as fn x -> x + 1 end. The syntax above is useful for short function definitions.
 
 If you want to capture a function from a module, you can do &Module.function():
 
-    iex> fun = &List.flatten(&1, &2)
-    &List.flatten/2
-    iex> fun.([1, [[2], 3]], [4, 5])
-    [1, 2, 3, 4, 5]
+    fun = &List.flatten(&1, &2)
+    IO.puts fun.([1, [[2], 3]], [4, 5]) #=> [1, 2, 3, 4, 5]
 
 &List.flatten(&1, &2) is the same as writing fn(list, tail) -> List.flatten(list, tail) end which in this case is equivalent to &List.flatten/2. You can read more about the capture operator & in the Kernel.SpecialForms documentation.
 
@@ -178,17 +166,15 @@ Named functions in Elixir also support default arguments:
 
 Any expression is allowed to serve as a default value, but it won't be evaluated during the function definition. Every time the function is invoked and any of its default values have to be used, the expression for that default value will be evaluated:
 
-    defmodule DefaultTest do
+    defmodule Concat do
     def dowork(x \\ "hello") do
         x
     end
     end
-    iex> DefaultTest.dowork
-    "hello"
-    iex> DefaultTest.dowork 123
-    123
-    iex> DefaultTest.dowork
-    "hello"
+
+    IO.puts Concat.dowork           #=> "hello"
+    IO.puts Concat.dowork 123       #=> 123
+    IO.puts Concat.dowork           #=> "hello"
 
 If a function with default values has multiple clauses, it is required to create a function head (without an actual body) for declaring defaults:
 
@@ -231,13 +217,8 @@ If we save the code above in a file named “concat.ex” and compile it, Elixir
 
 The compiler is telling us that invoking the join function with two arguments will always choose the first definition of join whereas the second one will only be invoked when three arguments are passed:
 
-    $ iex concat.ex
-    iex> Concat.join "Hello", "world"
-    ***First join
-    "Helloworld"
-    iex> Concat.join "Hello", "world", "_"
-    ***Second join
-    "Hello_world"
+    IO.puts Concat.join "Hello", "world"        #=> ***First join "Helloworld"
+    IO.puts Concat.join "Hello", "world", "_"   #=>   ***Second join "Hello_world"
 
 This finishes our short introduction to modules.
 
