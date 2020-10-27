@@ -92,7 +92,7 @@ However, since structs are just maps, they work with the functions from the Map 
     iex> Map.keys(jane)
     [:__struct__, :age, :name]
 
-Structs alongside protocols provide one of the most important features for Elixir developers: data polymorphism. That's what we will explore in the next chapter.
+Structs alongside protocols provide one of the most important features for Elixir developers: data polymorphism. That we will explore in the future lessons.
 
 &nbsp;
 ### **Default values and required keys**
