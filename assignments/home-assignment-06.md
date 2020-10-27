@@ -2,7 +2,22 @@
 
 &nbsp;
 ## **Home Assignment 6**
-Coming Soon!
+
+- Define a module and struct *Employee*, and add struct fields:
+    - first name
+    - last name
+    - id number
+    - salary
+    - job, which is one of the {:none, :coder, :designer, :manager, :ceo }
+- id number has a default value that is previous id + 1
+- salary has a default value 0
+- job has a default value of :none
+- Implement functions *Employee.promote* and *Employee.demote* which updates the job accordingly.
+    - job :none salary is set to 0
+    - each job above :none gets 2000 more salary than previous
+
+- Test your *Employee* module and its *promote* and *demote* functions.
+
 
 &nbsp;
 ----
