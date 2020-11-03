@@ -40,10 +40,11 @@ Lessons held on Tuesdays starting at 14:30.
 | 42 | **Self Studying Week** |
 | 43 | [Data structures](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/11-structs.md) | [Home assignment 6](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/assignments/home-assignment-06.md) |
 | 44 | [Processes and communication](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/12-process-comms.md) | [Home assignment 7](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/assignments/home-assignment-07.md) |
-| 45 | [Supervisor and Application](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/13-supervisor-and-application.md) | [Home assignment 8](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/assignments/home-assignment-08.md) |
-| 46 | [Building applications](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/14-building-applications.md) | [Home assignment 9](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/assignments/home-assignment-09.md) |
-| 47 | [Web development with Phoenix](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/15-phoenix.md) | |
-| 48 | [Web development with Phoenix](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/15-phoenix.md) | [Home assignment 10](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/assignments/home-assignment-10.md) |
+| 45 | [Building applications](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/13-building-applications.md) | [Home assignment 8](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/assignments/home-assignment-08.md) |
+| 46 | [Application, Agents](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/14-agents.md) | |
+| 47 | [Application, GenServer](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/15-genserver.md) | |
+| 47 | [Application, Supervisor](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/16-supervisor.md) | [Home assignment 9](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/assignments/home-assignment-09.md) |
+| 48 | [Web development with Phoenix](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/17-phoenix.md) | [Home assignment 10](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/assignments/home-assignment-10.md) |
 | 49 | Home assignments | |
 | 50 | **Exam** | |
 

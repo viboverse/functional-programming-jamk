@@ -9,7 +9,7 @@ In Elixir, all code runs inside processes. Processes are isolated from each othe
 
 Elixir's processes should not be confused with operating system processes. Processes in Elixir are extremely lightweight in terms of memory and CPU (even compared to threads as used in many other programming languages). Because of this, it is not uncommon to have tens or even hundreds of thousands of processes running simultaneously.
 
-In this chapter, we will learn about the basic constructs for spawning new processes, as well as sending and receiving messages between processes.
+In this lesson, we will learn about the basic constructs for spawning new processes, as well as sending and receiving messages between processes.
 
 &nbsp;
 ### **spawn**
