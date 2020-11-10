@@ -117,7 +117,7 @@ Linking can also be done manually by calling Process.link/1. We recommend that y
 
 Processes and links play an important role when building fault-tolerant systems. Elixir processes are isolated and don't share anything by default. Therefore, a failure in a process will never crash or corrupt the state of another process. Links, however, allow processes to establish a relationship in case of failure. We often link our processes to supervisors which will detect when a process dies and start a new process in its place.
 
-While other languages would require us to catch/handle exceptions, in Elixir we are actually fine with letting processes fail because we expect supervisors to properly restart our systems. “Failing fast” is a common philosophy when writing Elixir software!
+While other languages would require us to catch/handle exceptions, in Elixir we are actually fine with letting processes fail because we expect supervisors to properly restart our systems. *Failing fast* is a common philosophy when writing Elixir software.
 
 spawn/1 and spawn_link/1 are the basic primitives for creating processes in Elixir. Although we have used them exclusively so far, most of the time we are going to use abstractions that build on top of them. Let's see the most common one, called tasks.
 
@@ -142,9 +142,9 @@ Instead of spawn/1 and spawn_link/1, we use Task.start/1 and Task.start_link/1 w
 ### **State**
 We haven't talked about state so far in this guide. If you are building an application that requires state, for example, to keep your application configuration, or you need to parse a file and keep it in memory, where would you store it?
 
-Processes are the most common answer to this question. We can write processes that loop infinitely, maintain state, and send and receive messages. As an example, let's write a module that starts new processes that work as a key-value store in a file named kv.exs:
+Processes are the most common answer to this question. We can write processes that loop infinitely, maintain state, and send and receive messages. As an example, let's write a module that starts new processes that work as a key-value store in a file named valuestorage.exs:
 
-    defmodule KV do
+    defmodule ValueStorage do
     def start_link do
         Task.start_link(fn -> loop(%{}) end)
     end
@@ -162,9 +162,9 @@ Processes are the most common answer to this question. We can write processes th
 
 Note that the start_link function starts a new process that runs the loop/1 function, starting with an empty map. The loop/1 (private) function then waits for messages and performs the appropriate action for each message. We made loop/1 private by using defp instead of def. In the case of a :get message, it sends a message back to the caller and calls loop/1 again, to wait for a new message. While the :put message actually invokes loop/1 with a new version of the map, with the given key and value stored.
 
-Let's give it a try by running iex kv.exs:
+Let's give it a try by running iex valuestorage.exs:
 
-    iex> {:ok, pid} = KV.start_link
+    iex> {:ok, pid} = ValueStorage.start_link
     {:ok, #PID<0.62.0>}
     iex> send pid, {:get, :hello, self()}
     {:get, :hello, #PID<0.41.0>}
@@ -186,9 +186,9 @@ Notice how the process is keeping a state and we can get and update this state b
 
 It is also possible to register the pid, giving it a name, and allowing everyone that knows the name to send it messages:
 
-    iex> Process.register(pid, :kv)
+    iex> Process.register(pid, :valuestorage)
     true
-    iex> send :kv, {:get, :hello, self()}
+    iex> send :valuestorage, {:get, :hello, self()}
     {:get, :hello, #PID<0.41.0>}
     iex> flush()
     :world

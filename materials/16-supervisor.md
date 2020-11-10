@@ -19,7 +19,7 @@ For example, imagine your computer, router, printer, or whatever device is not w
 
 In Elixir, this is done by a Supervisor. A Supervisor is a process that supervises other processes and restarts them whenever they crash. To do so, Supervisors manage the whole life-cycle of any supervised processes, including startup and shutdown.
 
-In this lesson, we will learn how to put those concepts into practice by supervising the ValueStorage.Registry process. After all, if something goes wrong with the registry, the whole registry is lost and no bucket could ever be found! To address this, we will define a ValueStorage.Supervisor module that guarantees that our ValueStorage.Registry is up and running at any given moment.
+In this lesson, we will learn how to put those concepts into practice by supervising the ValueStorage.Registry process. After all, if something goes wrong with the registry, the whole registry is lost and no bucket could ever be found. To address this, we will define a ValueStorage.Supervisor module that guarantees that our ValueStorage.Registry is up and running at any given moment.
 
 At the end of the lesson, we will also talk about Applications. As we will see, Mix has been packaging all of our code into an application, and we will learn how to customize our application to guarantee that our Supervisor and the Registry are up and running whenever our system starts.
 
@@ -54,7 +54,7 @@ The supervision strategy dictates what happens when one of the children crashes.
 
 Once the supervisor starts, it will traverse the list of children and it will invoke the child_spec/1 function on each module.
 
-The child_spec/1 function returns the child specification which describes how to start the process, if the process is a worker or a supervisor, if the process is temporary, transient or permanent and so on. The child_spec/1 function is automatically defined when we use Agent, use GenServer, use Supervisor, etc. Let's give it a try in the terminal with iex -S mix:
+The child_spec/1 function returns the child specification which describes how to start the process, if the process is a worker or a supervisor, if the process is temporary, transient or permanent and so on. The child_spec/1 function is automatically defined when we use Agent, use GenServer, use Supervisor, etc. Let's give it a try in the terminal with **iex -S mix**:
 
     iex(1)> ValueStorage.Registry.child_spec([])
     %{id: ValueStorage.Registry, start: {ValueStorage.Registry, :start_link, [[]]}}
@@ -111,7 +111,7 @@ If you revisit the ValueStorage.Registry.start_link/1 implementation, you will r
 
 which in turn will register the process with the given name. The :name option expects an atom for locally named processes (locally named means it is available to this machine - there are other options, which we won't discuss here). Since module identifiers are atoms, we can name a process after the module that implements it, provided there is only one process for that name. This helps when debugging and introspecting the system.
 
-Let's give the updated supervisor a try inside iex -S mix:
+Let's give the updated supervisor a try inside **iex -S mix**:
 
     iex> ValueStorage.Supervisor.start_link([])
     {:ok, #PID<0.66.0>}
@@ -154,9 +154,9 @@ Although Mix generates and maintains the .app file for us, we can customize its 
 &nbsp;
 ### **Starting applications**
 
-Each application in our system can be started and stopped. The rules for starting and stopping an application are also defined in the .app file. When we invoke iex -S mix, Mix compiles our application and then starts it.
+Each application in our system can be started and stopped. The rules for starting and stopping an application are also defined in the .app file. When we invoke **iex -S mix**, Mix compiles our application and then starts it.
 
-Let's see this in practice. Start a console with iex -S mix and try:
+Let's see this in practice. Start a console with **iex -S mix** and try:
 
     iex> Application.start(:valuestorage)
     {:error, {:already_started, :valuestorage}}
@@ -165,7 +165,7 @@ You can see that it's already started. Mix starts the current application and al
 
 You can change this behaviour by giving the --no-start flag to Mix. It is rarely used in practice but it allows us to understand the underlying mechanisms better.
 
-Invoking mix is the same as mix run. Therefore, if you want to pass a flag to mix or iex -S mix, we just need to add the task name and the desired flags. For example, run iex -S mix run --no-start:
+Invoking mix is the same as mix run. Therefore, if you want to pass a flag to mix or **iex -S mix**, we just need to add the task name and the desired flags. For example, run **iex -S mix** run --no-start:
 
     iex> Application.start(:valuestorage)
     :ok
@@ -193,7 +193,7 @@ In practice, our tools always start our applications for us, but there is an API
 &nbsp;
 ### **The application callback**
 
-Whenever we invoke iex -S mix, Mix automatically starts our application by calling Application.start(:valuestorage). But can we can customize what happens when our application starts. To do so, we define an application callback.
+Whenever we invoke **iex -S mix**, Mix automatically starts our application by calling Application.start(:valuestorage). But can we can customize what happens when our application starts. To do so, we define an application callback.
 
 The first step is to tell our application definition (i.e. our .app file) which module is going to implement the application callback. Let's do so by opening mix.exs and changing def application to the following:
 
@@ -225,14 +225,14 @@ Please note that by doing this, we are breaking the boilerplate test case which 
 
 When we use Application, we may define a couple of functions, similar to when we used Supervisor or GenServer. This time we only had to define a start/2 function. The Application behaviour also has a stop/1 callback, but it is rarely used in practice.
 
-Now that you have defined an application callback which starts our supervisor, we expect the ValueStorage.Registry process to be up and running as soon we start iex -S mix. Let's give it another try:
+Now that you have defined an application callback which starts our supervisor, we expect the ValueStorage.Registry process to be up and running as soon we start **iex -S mix**. Let's give it another try:
 
     iex(1)> ValueStorage.Registry.create(ValueStorage.Registry, "shopping")
     :ok
     iex(2)> ValueStorage.Registry.lookup(ValueStorage.Registry, "shopping")
     {:ok, #PID<0.88.0>}
 
-Let's recap what is happening. Whenever we invoke iex -S mix, it automatically starts our application by calling Application.start(:valuestorage), which then invokes the application callback. The application callback's job is to start a supervision tree. Right now, we only have a single supervisor, but sometimes a supervisor is also supervised, giving it a shape of a tree. So far, our supervisor has a single child, a ValueStorage.Registry, which is started with name ValueStorage.Registry.
+Let's recap what is happening. Whenever we invoke **iex -S mix**, it automatically starts our application by calling Application.start(:valuestorage), which then invokes the application callback. The application callback's job is to start a supervision tree. Right now, we only have a single supervisor, but sometimes a supervisor is also supervised, giving it a shape of a tree. So far, our supervisor has a single child, a ValueStorage.Registry, which is started with name ValueStorage.Registry.
 
 
 &nbsp;
@@ -245,5 +245,5 @@ But we are not done yet. So far we are supervising the registry but our applicat
 
 &nbsp;
 ----
-**© Jani Immonen**
+**© Elixir-Lang.org, Jani Immonen**
 

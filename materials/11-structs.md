@@ -66,7 +66,7 @@ Structs can also be used in pattern matching, both for matching on the value of 
 
 &nbsp;
 ### **Structs are bare maps underneath**
-In the example above, pattern matching works because underneath structs are bare maps with a fixed set of fields. As maps, structs store a “special” field named __struct__ that holds the name of the struct:
+In the example above, pattern matching works because underneath structs are bare maps with a fixed set of fields. As maps, structs store a *special* field named __struct__ that holds the name of the struct:
 
     iex> is_map(john)
     true

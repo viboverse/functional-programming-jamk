@@ -2,7 +2,9 @@
 
 &nbsp;
 ## **Home Assignment 9**
-Coming Soon!
+
+- Write a test for ValueStorage.Bucket *delete* function.
+
 
 &nbsp;
 ----

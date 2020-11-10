@@ -226,7 +226,7 @@ The test above will fail on the last assertion as the bucket name remains in the
 
 In order to fix this bug, we need the registry to monitor every bucket it spawns. Once we set up a monitor, the registry will receive a notification every time a bucket process exits, allowing us to clean the registry up.
 
-Let's first play with monitors by starting a new console with iex -S mix:
+Let's first play with monitors by starting a new console with **iex -S mix**:
 
     iex> {:ok, pid} = ValueStorage.Bucket.start_link([])
     {:ok, #PID<0.66.0>}
@@ -319,5 +319,5 @@ This is a bad idea, as we don't want the registry to crash when a bucket crashes
 
 &nbsp;
 ----
-**© Jani Immonen**
+**© Elixir-Lang.org, Jani Immonen**
 

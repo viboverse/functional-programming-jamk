@@ -5,7 +5,7 @@ jani.immonen@jamk.fi
 
 &nbsp;
 ## **Modules and Functions**
-In Elixir we group several functions into modules. We've already used many different modules in the previous chapters such as the String module:
+In Elixir we group several functions into modules. We've already used many different modules in the previous lessons such as the String module:
 
     iex> String.length("hello")
     5
@@ -211,7 +211,7 @@ When using default values, one must be careful to avoid overlapping function def
     end
     end
 
-If we save the code above in a file named “concat.ex” and compile it, Elixir will emit the following warning:
+If we save the code above in a file named *concat.ex* and compile it, Elixir will emit the following warning:
 
     warning: this clause cannot match because a previous clause at line 2 always matches
 

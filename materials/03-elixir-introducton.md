@@ -28,7 +28,7 @@ All Elixir code runs inside lightweight threads of execution (called processes) 
 
     current_process = self()
 
-    # Spawn an Elixir process (not an operating system one!)
+    # Spawn an Elixir process (not an operating system one)
     spawn_link(fn ->
         send(current_process, {:msg, "hello world"})
     end)
@@ -77,7 +77,7 @@ When mixed with guards, pattern matching allows us to elegantly match and assert
     drive(User.get("John Doe"))
     #=> Fails if the user is under 16
 
-Elixir relies heavily on those features to ensure your software is working under the expected constraints. And when it is not, don't worry, supervisors have your back!
+Elixir relies heavily on those features to ensure your software is working under the expected constraints. And when it is not, don't worry, supervisors have your back.
 
 
 &nbsp;

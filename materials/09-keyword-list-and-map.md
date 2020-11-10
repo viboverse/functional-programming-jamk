@@ -7,7 +7,7 @@ jani.immonen@jamk.fi
 ## **Keyword lists and maps**
 So far we haven't discussed any associative data structures, i.e. data structures that are able to associate a certain value (or multiple values) to a key. Different languages call these different names like dictionaries, hashes, associative arrays, etc.
 
-In Elixir, we have two main associative data structures: keyword lists and maps. It's time to learn more about them!
+In Elixir, we have two main associative data structures: keyword lists and maps. It's time to learn more about them.
 
 &nbsp;
 ### **Keyword lists**
@@ -45,12 +45,12 @@ For example, the [Ecto library](https://github.com/elixir-lang/ecto) makes use o
         where: w.temp < 20,
         select: w
 
-These characteristics are what prompted keyword lists to be the default mechanism for passing options to functions in Elixir. In chapter 5, when we discussed the if/2 macro, we mentioned that the following syntax is supported:
+These characteristics are what prompted keyword lists to be the default mechanism for passing options to functions in Elixir. In previous lesson we discussed the if/2 macro, we mentioned that the following syntax is supported:
 
     iex> if false, do: :this, else: :that
     :that
 
-The do: and else: pairs form a keyword list! In fact, the call above is equivalent to:
+The do: and else: pairs form a keyword list. In fact, the call above is equivalent to:
 
     iex> if(false, [do: :this, else: :that])
     :that
@@ -77,7 +77,7 @@ In order to manipulate keyword lists, Elixir provides the Keyword module. Rememb
 
 &nbsp;
 ### **Maps**
-Whenever you need a key-value store, maps are the “go to” data structure in Elixir. A map is created using the **%{}** syntax:
+Whenever you need a key-value store, maps are the *go to* data structure in Elixir. A map is created using the **%{}** syntax:
 
     iex> map = %{:a => 1, 2 => :b}
     %{2 => :b, :a => 1}
@@ -179,7 +179,7 @@ It happens we can also use this same syntax for updating the value:
     [john: %{age: 31, languages: ["Erlang", "Ruby", "Elixir"], name: "John"},
     mary: %{age: 29, languages: ["Elixir", "F#", "Python"], name: "Mary"}]
 
-The **update_in/2** macro is similar but allows us to pass a function that controls how the value changes. For example, let's remove “Python” from Mary's list of languages:
+The **update_in/2** macro is similar but allows us to pass a function that controls how the value changes. For example, let's remove *Python* from Mary's list of languages:
 
     iex> users = update_in users[:mary].languages, fn languages -> List.delete(languages, "Python") end
     [john: %{age: 31, languages: ["Erlang", "Ruby", "Elixir"], name: "John"},

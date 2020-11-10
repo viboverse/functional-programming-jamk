@@ -18,7 +18,7 @@ Elixir is an immutable language where nothing is shared by default. If we want t
 We covered processes in the earlier lesson. ETS is a new topic that we do not cover during this lesson. When it comes to processes though, we rarely implement our own, instead we use the abstractions available in Elixir and OTP:
 
 * Agent - Simple wrappers around state.
-* GenServer - “Generic servers” (processes) that encapsulate state, provide sync and async calls, support code reloading, and more.
+* GenServer - *Generic servers* (processes) that encapsulate state, provide sync and async calls, support code reloading, and more.
 * Task - Asynchronous units of computation that allow spawning a process and potentially retrieving its result at a later time.
 
 We will explore most of these abstractions in this guide. Keep in mind that they are all implemented on top of processes using the basic features provided by the VM, like send, receive, spawn and link.

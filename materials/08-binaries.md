@@ -159,7 +159,7 @@ Given that strings are binaries, we can also pattern match on strings:
     iex> rest
     "anana"
 
-However, remember that binary pattern matching works on bytes, so matching on the string like “über” with multibyte characters won't match on the character, it will match on the first byte of that character:
+However, remember that binary pattern matching works on bytes, so matching on the string like *über* with multibyte characters won't match on the character, it will match on the first byte of that character:
 
     iex> "ü" <> <<0>>
     <<195, 188, 0>>
@@ -181,7 +181,7 @@ Therefore, when pattern matching on strings, it is important to use the utf8 mod
     iex> rest
     "ber"
 
-You will see that Elixir has excellent support for working with strings. It also supports many of the Unicode operations. In fact, Elixir passes all the tests showcased in the article “The string type is broken”.
+You will see that Elixir has excellent support for working with strings. It also supports many of the Unicode operations. In fact, Elixir passes all the tests showcased in the article *The string type is broken*.
 
 &nbsp;
 ### **Charlists**
