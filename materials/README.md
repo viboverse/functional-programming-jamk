@@ -47,7 +47,7 @@ Lessons held on Tuesdays starting at 14:30.
 | 46 | [Application, Dynamic supervisors](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/17-dynamic-supervisors.md) | |
 | 46 | [Application, ETS](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/18-ets.md) | |
 | 46 | [Application, Dependencies and umbrella projects](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/19-dependencies.md) | |
-| 47 | [Application, TCP Server](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/20-task-and-gen_tcp.md) | |
+| 47 | [Application, TCP/IP sockets](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/20-task-and-gen_tcp.md) | |
 | 47 | [Application, Doctests](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/21-doctests.md) | |
 | 47 | [Application, Distributed tasks](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/22-distributed-tasks.md) | |
 | 47 | [Application, Configuration and releases](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/23-configuration-and-release.md) | [Home assignment 9](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/assignments/home-assignment-09.md) |
