@@ -96,9 +96,9 @@ While our application will have many buckets, it will only have a single registr
 
 Let's slightly change our children definition (in ValueStorage.Supervisor.init/1) to be a list of tuples instead of a list of atoms:
 
-  def init(:ok) do
+    def init(:ok) do
     children = [
-      {ValueStorage.Registry, name: ValueStorage.Registry}
+        {ValueStorage.Registry, name: ValueStorage.Registry}
     ]
 
 With this in place, the supervisor will now start ValueStorage.Registry by calling ValueStorage.Registry.start_link(name: ValueStorage.Registry).
@@ -165,7 +165,7 @@ You can see that it's already started. Mix starts the current application and al
 
 You can change this behaviour by giving the --no-start flag to Mix. It is rarely used in practice but it allows us to understand the underlying mechanisms better.
 
-Invoking mix is the same as mix run. Therefore, if you want to pass a flag to mix or **iex -S mix**, we just need to add the task name and the desired flags. For example, run **iex -S mix** run --no-start:
+Invoking mix is the same as mix run. Therefore, if you want to pass a flag to mix or **iex -S mix**, we just need to add the task name and the desired flags. For example, run **iex -S mix run --no-start**:
 
     iex> Application.start(:valuestorage)
     :ok

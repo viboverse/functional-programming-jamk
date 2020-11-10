@@ -70,8 +70,8 @@ Open up lib/registry.ex, and let's change its implementation. We've added commen
         def lookup(server, name) do
             # 2. Lookup is now done directly in ETS, without accessing the server
             case :ets.lookup(server, name) do
-            [{^name, pid}] -> {:ok, pid}
-            [] -> :error
+                [{^name, pid}] -> {:ok, pid}
+                [] -> :error
             end
         end
 
@@ -98,14 +98,14 @@ Open up lib/registry.ex, and let's change its implementation. We've added commen
         def handle_cast({:create, name}, {names, refs}) do
             # 5. Read and write to the ETS table instead of the map
             case lookup(names, name) do
-            {:ok, _pid} ->
-                {:noreply, {names, refs}}
-            :error ->
-                {:ok, pid} = DynamicSupervisor.start_child(ValueStorage.BucketSupervisor, ValueStorage.Bucket)
-                ref = Process.monitor(pid)
-                refs = Map.put(refs, ref, name)
-                :ets.insert(names, {name, pid})
-                {:noreply, {names, refs}}
+                {:ok, _pid} ->
+                    {:noreply, {names, refs}}
+                :error ->
+                    {:ok, pid} = DynamicSupervisor.start_child(ValueStorage.BucketSupervisor, ValueStorage.Bucket)
+                    ref = Process.monitor(pid)
+                    refs = Map.put(refs, ref, name)
+                    :ets.insert(names, {name, pid})
+                    {:noreply, {names, refs}}
             end
         end
 
