@@ -123,10 +123,10 @@ Let's give it a try. Open up lib/valuestorage_server/application.ex, and let's c
 
     def start(_type, _args) do
         children = [
-            {Task, fn -> ValueStorage.accept(4040) end}
+            {Task, fn -> ValueStorageServer.accept(4040) end}
         ]
 
-        opts = [strategy: :one_for_one, name: ValueStorage.Supervisor]
+        opts = [strategy: :one_for_one, name: ValueStorageServer.Supervisor]
         Supervisor.start_link(children, opts)
     end
 
@@ -136,7 +136,7 @@ With this change, we are saying that we want to run ValueStorage.accept(4040) as
 
     port = String.to_integer(System.get_env("PORT") || "4040")
     # ...
-    {Task, fn -> ValueStorage.accept(port) end}
+    {Task, fn -> ValueStorageServer.accept(port) end}
 
 Insert these changes in your code and now you may start your application using the following command PORT=4321 mix run --no-halt, notice how we are passing the port as a variable, but still defaults to 4040 if none is given.
 
@@ -199,15 +199,15 @@ Let's change start/2 once again, to add a supervisor to our tree:
         port = String.to_integer(System.get_env("PORT") || "4040")
 
         children = [
-            {Task.Supervisor, name: ValueStorage.TaskSupervisor},
-            {Task, fn -> ValueStorage.accept(port) end}
+            {Task.Supervisor, name: ValueStorageServer.TaskSupervisor},
+            {Task, fn -> ValueStorageServer.accept(port) end}
         ]
 
-        opts = [strategy: :one_for_one, name: ValueStorage.Supervisor]
+        opts = [strategy: :one_for_one, name: ValueStorageServer.Supervisor]
         Supervisor.start_link(children, opts)
     end
 
-We'll now start a Task.Supervisor process with name ValueStorage.TaskSupervisor. Remember, since the acceptor task depends on this supervisor, the supervisor must be started first.
+We'll now start a Task.Supervisor process with name ValueStorageServer.TaskSupervisor. Remember, since the acceptor task depends on this supervisor, the supervisor must be started first.
 
 Now we need to change loop_acceptor/1 to use Task.Supervisor to serve each request:
 
@@ -239,7 +239,7 @@ Here is the full echo server implementation:
 
         defp loop_acceptor(socket) do
             {:ok, client} = :gen_tcp.accept(socket)
-            {:ok, pid} = Task.Supervisor.start_child(ValueStorage.TaskSupervisor, fn -> serve(client) end)
+            {:ok, pid} = Task.Supervisor.start_child(ValueStorageServer.TaskSupervisor, fn -> serve(client) end)
             :ok = :gen_tcp.controlling_process(client, pid)
             loop_acceptor(socket)
         end
@@ -274,11 +274,11 @@ We could fix this by defining our own module that calls use Task, restart: :perm
         port = String.to_integer(System.get_env("PORT") || "4040")
 
         children = [
-            {Task.Supervisor, name: ValueStorage.TaskSupervisor},
-            Supervisor.child_spec({Task, fn -> ValueStorage.accept(port) end}, restart: :permanent)
+            {Task.Supervisor, name: ValueStorageServer.TaskSupervisor},
+            Supervisor.child_spec({Task, fn -> ValueStorageServer.accept(port) end}, restart: :permanent)
         ]
 
-        opts = [strategy: :one_for_one, name: ValueStorage.Supervisor]
+        opts = [strategy: :one_for_one, name: ValueStorageServer.Supervisor]
         Supervisor.start_link(children, opts)
     end
 
