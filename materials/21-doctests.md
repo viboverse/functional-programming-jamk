@@ -29,11 +29,11 @@ After the parsing is done, we will update our server to dispatch the parsed comm
 &nbsp;
 ### **Doctests**
 
-Elixir makes documentation a first-class citizen in the language. We have explored this concept many times throughout this guide, be it via mix help or by typing h Enum or another module in an IEx console.
+Elixir makes documentation a first-class citizen in the language. We have explored this concept many times throughout this guide, be it via **mix help** or by typing h Enum or another module in an IEx console.
 
 In this section, we will implement the parsing functionality, document it and make sure our documentation is up to date with doctests. This helps us provide documentation with accurate code samples.
 
-Let's create our command parser at lib/valuestorage_server/command.ex and start with the doctest:
+Let's create our command parser at lib/value_storage_server/command.ex and start with the doctest:
 
     defmodule ValueStorageServer.Command do
         @doc ~S"""
@@ -112,7 +112,7 @@ Our implementation splits the line on whitespace and then matches the command ag
 
     """
 
-With doctests at hand, it is your turn to make tests pass. Once you're ready, you can compare your work with our solution below:
+With doctests at hand, let's make tests pass.
 
     def parse(line) do
         case String.split(line) do
