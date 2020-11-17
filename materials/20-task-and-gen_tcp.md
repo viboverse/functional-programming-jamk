@@ -81,7 +81,7 @@ This is pretty much all we need to implement our echo server. Let's give it a tr
 
 Start an IEx session inside the valuestorage_server application with **iex -S mix**. Inside IEx, run:
 
-    iex> ValueStorage.accept(4040)
+    iex> ValueStorageServer.accept(4040)
 
 The server is now running, and you will even notice the console is blocked. Let's use a telnet client to access our server. There are clients available on most operating systems, and their command lines are generally similar:
 
