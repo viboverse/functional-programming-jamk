@@ -351,7 +351,7 @@ config/releases.exs files work very similar to regular config/config.exs files, 
 &nbsp;
 ### **Summing up**
 
-Throughout the guide, we have built a very simple distributed key-value store as an opportunity to explore many constructs like generic servers, supervisors, tasks, agents, applications and more. Not only that, we have written tests for the whole application, got familiar with ExUnit, and learned how to use the Mix build tool to accomplish a wide range of tasks.
+Throughout the lessons, we have built a very simple distributed key-value store as an opportunity to explore many constructs like generic servers, supervisors, tasks, agents, applications and more. Not only that, we have written tests for the whole application, got familiar with ExUnit, and learned how to use the Mix build tool to accomplish a wide range of tasks.
 
 Of course, Elixir can be used for much more than distributed key-value stores. Embedded systems, data-processing and data-ingestion, web applications, streaming systems, and others are many of the different domains Elixir excels at. Hopefully these lessons has prepared you to explore any of those domains or any future domain you may desire to bring Elixir into.
 
