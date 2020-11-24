@@ -33,7 +33,7 @@ Go to the **holiday** folder and create the database:
 
 To change the database username or password, see **config/dev.exs** file:
 
-# Configure your database
+    # Configure your database
     config :holiday, Holiday.Repo,
         username: "postgres",
         password: "postgres",
@@ -46,7 +46,7 @@ Next, start the Phoenix server:
 
     $ mix phx.server
 
-If you are running on Windows, the Windows Defender Firewall prompt will pop up. Allow connections in private networks.
+If you are running on Windows, the Windows Defender Firewall prompt may pop up. Allow connections on private networks.
 
 Phoenix server is now running and is serving the web page in default port of 4000. Open the Phoenix welcome page in your browser at [http://localhost:4000](http://localhost:4000).
 
