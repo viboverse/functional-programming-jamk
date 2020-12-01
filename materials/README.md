@@ -53,7 +53,7 @@ Lessons held on Tuesdays starting at 14:30.
 | 47 | [Application, Configuration and releases](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/23-configuration-and-release.md) | [Home assignment 9](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/assignments/home-assignment-09.md) |
 | 48 | [Phoenix Install and dependencies](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/24-phoenix-install.md) | |
 | 49 | [Web app development with Phoenix](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/25-phoenix-app.md) | |
-| 49 | [Web app development with Phoenix, part 2](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/25-phoenix-chat.md) | [Home assignment 10](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/assignments/home-assignment-10.md) |
+| 49 | [Web app development with Phoenix, part 2](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/materials/26-phoenix-chat.md) | [Home assignment 10](https://gitlab.labranet.jamk.fi/immja/functional-programming/-/blob/master/assignments/home-assignment-10.md) |
 | 50 | **Exam** | |
 
 

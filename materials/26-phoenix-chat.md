@@ -75,6 +75,7 @@ The first priority of your channels is to authorize clients to join a given topi
         def join("room:lobby", _message, socket) do
             {:ok, socket}
         end
+
         def join("room:" <> _private_room_id, _params, _socket) do
             {:error, %{reason: "unauthorized"}}
         end
@@ -88,7 +89,7 @@ Phoenix projects come with [webpack](https://webpack.js.org/) by default, unless
 
 The **assets/js/socket.js** defines a simple client based on the socket implementation that ships with Phoenix. We can use that library to connect to our socket and join our channel, we just need to set our room name to "room:lobby" in that file. Modify the line:
 
-    #let channel = socket.channel("topic:subtopic", {})
+    //let channel = socket.channel("topic:subtopic", {})
     let channel = socket.channel("room:lobby", {})
 
 After that, we need to make sure **assets/js/socket.js** gets imported into our application JavaScript file. To do that, add a new line to the end of **assets/js/app.js**:
