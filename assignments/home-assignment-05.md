@@ -2,6 +2,7 @@
 
 &nbsp;
 ## **Home Assignment 5**
+Copy the source code to Moodle return box. Alternatively you can paste a link to GitLab. If using GitLab, verify that you have added at least a *Reporter* permission for the lecturer.
 
 - Create a source file **math.ex** and declare a module *Math*.
 - Declare functions *Math.add*, *Math.sub*, *Math.mul*, and *Math.div*, each taking two parameters.

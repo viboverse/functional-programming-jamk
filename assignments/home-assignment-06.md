@@ -2,6 +2,7 @@
 
 &nbsp;
 ## **Home Assignment 6**
+Copy the source code to Moodle return box. Alternatively you can paste a link to GitLab. If using GitLab, verify that you have added at least a *Reporter* permission for the lecturer.
 
 - Define a module and struct *Employee*, and add struct fields:
     - first name

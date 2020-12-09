@@ -2,6 +2,8 @@
 
 &nbsp;
 ## **Home Assignment 7**
+Copy the source code to Moodle return box. Alternatively you can paste a link to GitLab. If using GitLab, verify that you have added at least a *Reporter* permission for the lecturer.
+
 Implement a game of Blackjack against computer.
 
 - Create two processes of **player** and **dealer**.

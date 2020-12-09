@@ -2,6 +2,8 @@
 
 &nbsp;
 ## **Home Assignment 2**
+Copy the source code to Moodle return box. Alternatively you can paste a link to GitLab. If using GitLab, verify that you have added at least a *Reporter* permission for the lecturer.
+
 This assignment consist of multiple parts. You can write the parts into same script file right after another.
 
 &nbsp;

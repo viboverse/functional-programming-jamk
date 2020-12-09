@@ -2,6 +2,8 @@
 
 &nbsp;
 ## **Home Assignment 9**
+Copy the source code to Moodle return box. Alternatively you can paste a link to GitLab. If using GitLab, verify that you have added at least a *Reporter* permission for the lecturer.
+
 Use **gen_tcp** to implement message passing system with traditional *client-server networking model*.
 
 - Implement server process that listens and accepts new connections.
