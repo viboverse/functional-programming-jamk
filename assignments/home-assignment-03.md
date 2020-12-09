@@ -11,7 +11,7 @@ Implement a Elixir script that:
 - If given number is evenly divisible by 3, print *Divisible by 3*.
 - If given number is evenly divisible by 5, print *Divisible by 5*.
 - If given number is evenly divisible by 7, print *Divisible by 7*.
-- If given number is not evenly divisible by 3, 5 or 7, find smallest value that number is evenly divisible for and print that value to the output.
+- If given number is not evenly divisible by 3, 5 or 7, find smallest value (excluding 1) that number is evenly divisible for and print that value to the output.
 
 &nbsp;
 ### **Part 2**
