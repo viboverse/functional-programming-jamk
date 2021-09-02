@@ -41,7 +41,7 @@ Course materials contain 10 home assignments and an exam.
 
 Store your home assingments in GitLab and return the link to your GitLab project into Moodle return box.
 
-Final return day of home assignments is 14.12.2020.
+Final return day of home assignments is 9.12.2021.
 
 &nbsp;
 ## **Grading**
