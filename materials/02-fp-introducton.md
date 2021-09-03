@@ -35,17 +35,17 @@ Here are some most prominent Functional programming languages:
 - Immutable Data
     - Data is not modified after it has been declared.
     - Create new data structures instead of modifying ones which is already exist.
-- Referential transparency
-    - Functional programs should perform operations just like as if it is for the first time. Its known what may or may not have happened during the program's execution, and its side effects.
+- Closure
+    - The closure is an inner function which can access variables of parent function's, even after the parent function has executed.
+- First-class function
+    - Attributed to programming language entities that have no restriction on their use. Therefore, first-class functions can appear anywhere in the program.
+- Maintainability
+    - Easier to maintain as its not possible to accidentally change anything outside the given function.
 - Modularity
     - Modular design increases productivity. Small modules can be implemented quickly and have a greater chance of re-use which leads to faster development time.
     - Modules can be tested separately which reduces the time spent on unit testing and debugging.
-- Maintainability
-    - Easier to maintain as its not possible to accidentally change anything outside the given function.
-- First-class function
-    - Attributed to programming language entities that have no restriction on their use. Therefore, first-class functions can appear anywhere in the program.
-- Closure
-    - The closure is an inner function which can access variables of parent function's, even after the parent function has executed.
+- Referential transparency
+    - Functional programs should perform operations just like as if it is for the first time. Its known what may or may not have happened during the program's execution, and its side effects.
 - Higher-order functions
     - Functions either take other functions as arguments or return them as results.
 - Pure function
