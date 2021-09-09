@@ -73,7 +73,7 @@ We can also use this syntax to access documentation. The Elixir shell defines th
 
     iex> h round/1
 
-It also works with operators and other constructs (try h +/2). Invoking h without arguments displays the documentation for IEx.Helpers, which is where h and other functionality is defined.
+It also works with operators and other constructs, try h(Kernel.+/2). Invoking h without arguments displays the documentation for IEx.Helpers, which is where h and other functionality is defined.
 
 
 &nbsp;
@@ -135,8 +135,8 @@ Finally, Elixir has a construct called aliases which we will explore later. Alia
 ### **Strings**
 Strings in Elixir are delimited by double quotes, and they are encoded in UTF-8:
 
-    iex> "Hyvää Päivää"
-    "Hyvää Päivää"
+    iex> "Have a nice day!"
+    "Have a nice day!"
 
 *Note: if you are running on Windows, there is a chance your terminal does not use UTF-8 by default. You can change the encoding of your current session by running chcp 65001 before entering IEx.*
 
@@ -170,18 +170,18 @@ Strings in Elixir are represented internally by contiguous sequences of bytes kn
 
 We can also get the number of bytes in a string:
 
-    iex> byte_size("Päivää")
+    iex> byte_size("hello")
     6
 
 Notice that the number of bytes in that string uses can be larger than number of character it holds. That is because some UTF-8 characters may use multiple bytes. We can get the actual length of the string, based on the number of graphemes, by using the **String.length/1** function:
 
-    iex> String.length("Päivää")
+    iex> String.length("hello")
     6
 
 The String module contains a bunch of functions that operate on strings as defined in the Unicode standard:
 
-    iex> String.upcase("Päivää")
-    "PÄIVÄÄ"
+    iex> String.upcase("hello")
+    "HELLO"
 
 &nbsp;
 ### **Anonymous functions**
