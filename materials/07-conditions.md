@@ -42,6 +42,9 @@ The first clause above will only match when **x** is positive.
 
 Keep in mind errors in guards do not leak but simply make the guard fail:
 
+    # hd causes argument error on numeric variable, but
+    # do not cause error on condition guard if guard is not true
+    hd(1)
     case 1 do
         x when hd(x) -> IO.puts "Won't match"
         x -> IO.puts "Got #{x}"
