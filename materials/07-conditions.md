@@ -5,7 +5,7 @@ jani.immonen@jamk.fi
 
 &nbsp;
 ## **Conditions**
-In this lesson, we will learn about the case, cond, and if control flow structures.
+In this lesson, we will learn about the case, cond, and if control flow structures. Create new file **conditions.exs** for these examples.
 
 &nbsp;
 ### **case**
