@@ -16,7 +16,9 @@ In this lesson, we will learn about ETS (Erlang Term Storage) and how to use it 
 &nbsp;
 ### **ETS as a cache**
 
-ETS allows us to store any Elixir term in an in-memory table. Working with ETS tables is done via Erlang's :ets module:
+ETS allows us to store any Elixir term in an in-memory table. Working with ETS tables is done via Erlang's :ets module.
+
+Run **iex -S mix** to experiment with ETS:
 
     iex> table = :ets.new(:buckets_registry, [:set, :protected])
     #Reference<0.1885502827.460455937.234656>
