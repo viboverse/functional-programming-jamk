@@ -54,6 +54,8 @@ Next we will install the Phoenix application generator:
 ### **node.js**
 Phoenix uses webpack to compile static assets (JavaScript, CSS, etc), by default. Webpack uses the **node package manager (npm)** to install its dependencies, and npm requires node.js.
 
+**NOTE** Latest version of node.js does not seem to work. Browse the older versions of node.js installs and install the version 6.14.15.
+
 Download and install node.js from the [download page](https://nodejs.org/en/download/). If you have a old installation, note that Phoenix requires node.js version 5.0.0 or greater.
 
 On Windows, after installation, add the path **C:\\Program Files\\nodejs\\** to system environment variables:
@@ -66,7 +68,7 @@ On Windows, after installation, add the path **C:\\Program Files\\nodejs\\** to 
 Then test that **npm** is installed and configured properly. Open command prompt and type:
 
     $ npm -v
-    6.14.8
+    6.14.15
 
 
 &nbsp;
