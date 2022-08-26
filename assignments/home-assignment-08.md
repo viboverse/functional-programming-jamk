@@ -1,4 +1,4 @@
-# Functional Programming - TTOW0410
+# Functional Programming - TTC8810
 
 &nbsp;
 ## **Home Assignment 8**
@@ -13,5 +13,5 @@ Use a GenServer to produce general purpose periodical timer
 
 &nbsp;
 ----
-**© Jani Immonen**
+**© 2022 Jani Immonen**
 

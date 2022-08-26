@@ -162,5 +162,5 @@ Elixir is modern and powerful programming environment which is suitable especial
 
 &nbsp;
 ----
-**© Jani Immonen**
+**© 2022 Jani Immonen**
 

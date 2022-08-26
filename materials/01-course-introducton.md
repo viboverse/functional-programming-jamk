@@ -6,7 +6,7 @@ jani.immonen@jamk.fi
 Welcome to Functional Programming course. Goal is to learn principles of functional programming and learn to write code using *Elixir* language.
 We use Microsoft Visual Studio Code as source code editor, and rest of the tools are included in Erlang/Elixir installation.
 
-Course code: TTOW0410
+Course code: TTC8810
 Extent: 6 credits
 
 The materials for basics of Elixir language are 99% based on Elixir homepage Getting Started Guide.
@@ -61,5 +61,5 @@ If you already know the topics of this course, contact lecturer for an optional 
 
 &nbsp;
 ----
-**© Jani Immonen**
+**© 2022 Jani Immonen**
 

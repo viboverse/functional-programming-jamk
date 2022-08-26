@@ -1,4 +1,4 @@
-# Functional Programming - TTOW0410 - 6 cr
+# Functional Programming - TTC8810 - 6 cr
 **JAMK IT-institute**
 
 &nbsp;
@@ -8,7 +8,7 @@ Materials (c) Jani Immonen
 
 Lecturer: Jani Immonen - jani.immonen@jamk.fi
 
-Course info in [PEPPI](https://opetussuunnitelmat.peppi.jamk.fi/fi/course_unit/TTOW0410).
+Course info in [PEPPI](https://opetussuunnitelmat.peppi.jamk.fi/fi/course_unit/TTC8810).
 
 
 &nbsp;

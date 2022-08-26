@@ -1,4 +1,4 @@
-# Functional Programming - TTOW0410
+# Functional Programming - TTC8810
 
 &nbsp;
 ## **Home Assignment 10**
@@ -9,5 +9,5 @@ Paste a link to GitLab project to Moodle return box. Verify that you have added 
 
 &nbsp;
 ----
-**© Jani Immonen**
+**© 2022 Jani Immonen**
 

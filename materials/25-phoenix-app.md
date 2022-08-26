@@ -267,5 +267,5 @@ And lastly, download your favorite holiday image and place it into **assets/stat
 
 &nbsp;
 ----
-**© Jani Immonen**
+**© 2022 Jani Immonen**
 

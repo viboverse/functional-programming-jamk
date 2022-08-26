@@ -1,4 +1,4 @@
-# Functional Programming - TTOW0410
+# Functional Programming - TTC8810
 
 &nbsp;
 ## **Home Assignment 3**
@@ -25,5 +25,5 @@ Write an anonymous function that takes two parameters:
 
 &nbsp;
 ----
-**© Jani Immonen**
+**© 2022 Jani Immonen**
 

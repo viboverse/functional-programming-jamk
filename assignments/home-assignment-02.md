@@ -1,4 +1,4 @@
-# Functional Programming - TTOW0410
+# Functional Programming - TTC8810
 
 &nbsp;
 ## **Home Assignment 2**
@@ -20,5 +20,5 @@ Given a phrase *"Pattern Matching with Elixir. Remember that equals sign is a ma
 
 &nbsp;
 ----
-**© Jani Immonen**
+**© 2022 Jani Immonen**
 

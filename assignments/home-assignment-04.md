@@ -1,4 +1,4 @@
-# Functional Programming - TTOW0410
+# Functional Programming - TTC8810
 
 &nbsp;
 ## **Home Assignment 4**
@@ -29,5 +29,5 @@ This assignment consist of multiple parts. You can write the parts into same scr
 
 &nbsp;
 ----
-**© Jani Immonen**
+**© 2022 Jani Immonen**
 

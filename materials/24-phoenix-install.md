@@ -88,5 +88,5 @@ Mac OS X and Windows users already have a filesystem watcher but Linux users nee
 
 &nbsp;
 ----
-**© Jani Immonen**
+**© 2022 Jani Immonen**
 
