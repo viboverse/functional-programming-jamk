@@ -1,5 +1,4 @@
 # **Functional Programming**
-Jani Immonen, D571
 jani.immonen@jamk.fi
 
 

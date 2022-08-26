@@ -23,7 +23,7 @@ The course covers an introduction to functional programming using a purely funct
 
 Changes to schedule are announced here on this page.
 
-Lessons held on Tuesdays starting at 14:30.
+Lessons held on X starting at XX:XX.
 
 | Week | Content | Assignments |
 |:--------|---------|:-------------------:|
