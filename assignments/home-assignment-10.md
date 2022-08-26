@@ -1,4 +1,4 @@
-# Functional Programming - TTC8810
+# Functional Programming
 
 &nbsp;
 ## **Home Assignment 10**

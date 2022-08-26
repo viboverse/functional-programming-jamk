@@ -1,4 +1,4 @@
-# Functional Programming - TTC8810 - 6 cr
+# Functional Programming - 6 cr
 **JAMK IT-institute**
 
 &nbsp;
