@@ -146,7 +146,7 @@ The &1 represents the first argument passed into the function. &(&1 + 1) above i
 If you want to capture a function from a module, you can do &Module.function():
 
     fun = &List.flatten(&1, &2)
-    IO.puts fun.([1, [[2], 3]], [4, 5]) #=> [1, 2, 3, 4, 5]
+    IO.inspect fun.([1, [[2], 3]], [4, 5]) #=> [1, 2, 3, 4, 5]
 
 &List.flatten(&1, &2) is the same as writing fn(list, tail) -> List.flatten(list, tail) end which in this case is equivalent to &List.flatten/2. You can read more about the capture operator & in the Kernel.SpecialForms documentation.
 
