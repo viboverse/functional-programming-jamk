@@ -130,7 +130,7 @@ Remember Elixir makes a distinction between anonymous functions and named functi
 
 Local or imported functions, like is_function/1, can be captured without the module:
 
-    IO.puts &is_function/1          #=> &:erlang.is_function/1
+    IO.inspect &is_function/1          #=> &:erlang.is_function/1
     IO.puts (&is_function/1).(fun)  #=> true
 
 Note the capture syntax can also be used as a shortcut for creating functions:
