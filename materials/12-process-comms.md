@@ -12,7 +12,7 @@ In this lesson, we will learn about the basic constructs for spawning new proces
 
 &nbsp;
 ### **spawn**
-The basic mechanism for spawning new processes is the auto-imported spawn/1 function:
+The basic mechanism for spawning new processes is the spawn/1 function:
 
     iex> spawn fn -> 1 + 2 end
     #PID<0.43.0>
@@ -139,7 +139,7 @@ Instead of spawn/1 and spawn_link/1, we use Task.start/1 and Task.start_link/1 w
 
 &nbsp;
 ### **State**
-We haven't talked about state so far in this guide. If you are building an application that requires state, for example, to keep your application configuration, or you need to parse a file and keep it in memory, where would you store it?
+We haven't talked about state so far. If you are building an application that requires state, for example, to keep your application configuration, or you need to parse a file and keep it in memory, where would you store it?
 
 Processes are the most common answer to this question. We can write processes that loop infinitely, maintain state, and send and receive messages. As an example, let's write a module that starts new processes that work as a key-value store in a file named valuestorage.exs:
 
