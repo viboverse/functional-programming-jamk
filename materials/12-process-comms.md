@@ -58,9 +58,9 @@ If there is no message in the mailbox matching any of the patterns, the current 
     iex> receive do
     ...>   {:hello, msg}  -> msg
     ...> after
-    ...>   1_000 -> "nothing after 1s"
+    ...>   1_000 -> "timeout at 1s"
     ...> end
-    "nothing after 1s"
+    "timeout at 1s"
 
 A timeout of 0 can be given when you already expect the message to be in the mailbox.
 
