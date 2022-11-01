@@ -3,7 +3,7 @@ jani.immonen@jamk.fi
 
 
 &nbsp;
-## **Doctests, patterns and with**
+## **Doctests and command parsing**
 In this lesson, we will implement the code that parses the commands we described in the first lesson:
 
     CREATE shopping
@@ -53,7 +53,7 @@ Doctests are specified by an indentation of four spaces followed by the iex> pro
 
 Also, note that we started the documentation string using @doc ~S""". The ~S prevents the \r\n characters from being converted to a carriage return and line feed until they are evaluated in the test.
 
-To run our doctests, we'll create a file at test/valuestorage_server/command_test.exs and call doctest ValueStorageServer.Command in the test case:
+To run our doctests, we'll create a file at valuestorage_server/test/command_test.exs and call doctest ValueStorageServer.Command in the test case:
 
     defmodule ValueStorageServer.CommandTest do
         use ExUnit.Case, async: true
@@ -65,7 +65,7 @@ Run the test suite and the doctest should fail:
     1) test doc at ValueStorageServer.Command.parse/1 (1) (ValueStorageServer.CommandTest)
         test/valuestorage_server/command_test.exs:3
         Doctest failed
-        code: ValueStorageServer.Command.parse "CREATE shopping\r\n" === {:ok, {:create, "shopping"}}
+        code: ValueStorageServer.Command.parse("CREATE shopping\r\n") === {:ok, {:create, "shopping"}}
         lhs:  :not_implemented
         stacktrace:
         lib/valuestorage_server/command.ex:7: ValueStorageServer.Command (module)
@@ -85,28 +85,28 @@ Our implementation splits the line on whitespace and then matches the command ag
 
     ## Examples
 
-        iex> ValueStorageServer.Command.parse "CREATE shopping\r\n"
+        iex> ValueStorageServer.Command.parse("CREATE shopping\r\n")
         {:ok, {:create, "shopping"}}
 
-        iex> ValueStorageServer.Command.parse "CREATE  shopping  \r\n"
+        iex> ValueStorageServer.Command.parse("CREATE  shopping  \r\n")
         {:ok, {:create, "shopping"}}
 
-        iex> ValueStorageServer.Command.parse "PUT shopping milk 1\r\n"
+        iex> ValueStorageServer.Command.parse("PUT shopping milk 1\r\n")
         {:ok, {:put, "shopping", "milk", "1"}}
 
-        iex> ValueStorageServer.Command.parse "GET shopping milk\r\n"
+        iex> ValueStorageServer.Command.parse("GET shopping milk\r\n")
         {:ok, {:get, "shopping", "milk"}}
 
-        iex> ValueStorageServer.Command.parse "DELETE shopping eggs\r\n"
+        iex> ValueStorageServer.Command.parse("DELETE shopping eggs\r\n")
         {:ok, {:delete, "shopping", "eggs"}}
 
     Unknown commands or commands with the wrong number of
     arguments return an error:
 
-        iex> ValueStorageServer.Command.parse "UNKNOWN shopping eggs\r\n"
+        iex> ValueStorageServer.Command.parse("UNKNOWN shopping eggs\r\n")
         {:error, :unknown_command}
 
-        iex> ValueStorageServer.Command.parse "GET shopping\r\n"
+        iex> ValueStorageServer.Command.parse("GET shopping\r\n")
         {:error, :unknown_command}
 
     """
@@ -144,7 +144,7 @@ As the name says, doctest is documentation first and a test later. Their goal is
 
 
 &nbsp;
-### **with**
+### **Command parsing**
 
 As we are now able to parse commands, we can finally start implementing the logic that runs the commands. Let's add a stub definition for this function for now:
 
@@ -235,7 +235,7 @@ This means our implementation is going in the correct direction, but it doesn't 
 
 The previous implementation used pipelines which made the logic straightforward to follow. However, now that we need to handle different error codes along the way, our server logic is nested inside many case calls.
 
-Thankfully, Elixir v1.2 introduced the with construct, which allows you to simplify code like the above, replacing nested case calls with a chain of matching clauses. Let's rewrite the serve/1 function to use with:
+Thankfully, Elixir v1.2 introduced the *with* construct, which allows you to simplify code like the above, replacing nested case calls with a chain of matching clauses. Let's rewrite the serve/1 function to use with:
 
     defp serve(socket) do
         msg =
