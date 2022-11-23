@@ -150,7 +150,7 @@ Lets add a simple counter that shows time remaining until holiday season starts.
 
 The above command will create model, view, controllers, repository, templates, tests with basic **CRUD (Create,Read,Update,Delete)** events that connect to our database. The parameters to **mix phx.gen.html** specify the names as a *collection*, *singular* and *plural*, and lastly the database field names with types.
 
-Next, edit the **lib/holiday_web/router.ex** and add the *resources* specification inside the *HolidayWeb* scope:
+Next, edit the **lib/holiday_web/router.ex** and add the *resources* specification inside the *HolidayWeb* scope. Edit the first scope in router.ex file as:
 
     scope "/", HolidayWeb do
         pipe_through :browser
@@ -217,7 +217,7 @@ Now our webpage shows a simple list of future events. You can verify this by add
 
 &nbsp;
 ### **Adding a clock**
-We are going to use FlipClock.js to create our countdown clocks. Open the file **lib/holiday_web/templates/layout/app.html.eex** for editing and add following stylesheet and scripts:
+We are going to use FlipClock.js to create our countdown clocks. Open the file **lib/holiday_web/templates/layout/app.html.eex** for editing and add following stylesheet and scripts to **head** section of the file:
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.css" />
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>

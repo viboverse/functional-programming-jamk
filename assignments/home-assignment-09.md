@@ -10,7 +10,7 @@ Use **gen_tcp** to implement message passing system with traditional *client-ser
 - Implement client process that connects to the server and has interface to send a (text) message to the server.
 - When server receives the message from client, it echoes the message to all other connected clients.
 - Clients waits and shows messages from server.
-- Test your implementation with at least two clients.
+- Manually test your implementation with at least two clients.
 
 **Bonus:**
 - Allow client to assign a name to itself after its connected to the server.
