@@ -18,5 +18,5 @@ Use **gen_tcp** to implement message passing system with traditional *client-ser
 
 &nbsp;
 ----
-**© 2022 Jani Immonen**
+**© 2023 Jani Immonen**
 

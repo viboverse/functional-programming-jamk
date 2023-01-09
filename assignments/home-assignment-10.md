@@ -9,5 +9,5 @@ Paste a link to GitLab project to Moodle return box. Verify that you have added 
 
 &nbsp;
 ----
-**© 2022 Jani Immonen**
+**© 2023 Jani Immonen**
 

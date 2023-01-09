@@ -1,21 +1,26 @@
-# Hello from Elixir example
-defmodule Input do
-  def get_string(str) do
-    IO.gets(str) |> String.trim
+defmodule Recursion do
+  def loop(msg, n, c) do
+    IO.puts msg <> to_string(n)
+    if n < c do loop(msg, n + 1, c) end
   end
 end
 
-number = 124
+Recursion.loop("Step ", 1, 5)
 
-if number == 124 do
-  IO.puts("Match #{number}")
-else
-  IO.puts("No match #{number}")
-end
 
-IO.puts "Hyvää Päivää!"
-str = IO.gets("Gimme number: ")
-str = String.trim(str)
-number = String.to_integer(str)
-IO.puts number
+"""
+Stuff worth mentioning:
+- Exception handling
+- Supervisors
+- Dynamic Supervisors
+- Supervision Trees
 
+Also worth mentioning:
+- Pure functions do not alter external state/data/variables
+
+"""
+
+Enum.each(1..5, fn(x) ->
+  IO.write "step"
+  IO.puts x
+end)

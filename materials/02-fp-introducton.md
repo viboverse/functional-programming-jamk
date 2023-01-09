@@ -94,5 +94,5 @@ Most importantly, functional code is characterised by one thing: **the absence o
 
 &nbsp;
 ----
-**© 2022 Jani Immonen**
+**© 2023 Jani Immonen**
 

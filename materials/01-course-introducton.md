@@ -40,7 +40,6 @@ Course materials contain 10 home assignments and an exam.
 
 Store your home assingments in GitLab and return the link to your GitLab project into Moodle return box.
 
-Final return day of home assignments is 6.12.2022.
 
 &nbsp;
 ## **Grading**
@@ -61,5 +60,5 @@ If you already know the topics of this course, contact lecturer for an optional 
 
 &nbsp;
 ----
-**© 2022 Jani Immonen**
+**© 2023 Jani Immonen**
 

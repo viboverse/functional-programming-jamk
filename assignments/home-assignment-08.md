@@ -13,5 +13,5 @@ Use a GenServer to produce general purpose periodical timer
 
 &nbsp;
 ----
-**© 2022 Jani Immonen**
+**© 2023 Jani Immonen**
 
