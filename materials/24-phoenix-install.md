@@ -87,6 +87,24 @@ Mac OS X and Windows users already have a filesystem watcher but Linux users nee
 
 
 &nbsp;
+### **Linux install (quick list)**
+
+    $ sudo apt install erlang-dev
+    $ sudo apt install elixir
+    $ sudo apt install npm
+    $ sudo apt install nodejs
+    $ sudo apt install postgresql
+
+    $ sudo -u postgres -i
+    $ createuser -l -d -P postgres
+    $ [ENTER PASSWORD "postgres"]
+    $ exit
+
+&nbsp;
+
+
+
+&nbsp;
 ----
 **© 2023 Jani Immonen**
 
