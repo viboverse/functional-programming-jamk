@@ -100,6 +100,10 @@ Mac OS X and Windows users already have a filesystem watcher but Linux users nee
     $ [ENTER PASSWORD "postgres"]
     $ exit
 
+    Download Visual Studio Code debian installation package
+    $ sudo dpkg -i [VSCODE_PACKAGE_NAME]
+    
+
 &nbsp;
 
 
