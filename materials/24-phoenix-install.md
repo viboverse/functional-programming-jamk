@@ -102,6 +102,9 @@ Mac OS X and Windows users already have a filesystem watcher but Linux users nee
 
     Download Visual Studio Code debian installation package
     $ sudo dpkg -i [VSCODE_PACKAGE_NAME]
+
+    Install Phoenix 'new' tool
+    $ mix archive.install hex phx_new 1.5.7
     
 
 &nbsp;
