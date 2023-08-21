@@ -4,15 +4,17 @@ jani.immonen@jamk.fi
 
 &nbsp;
 ## **Elixir**
-Elixir is a dynamic, functional language designed for building scalable and maintainable applications.
+Elixir is a functional programming language that is built on top of the Erlang VM. It is a dynamic language that is known for its simplicity and ease of use, as well as its ability to scale and handle concurrent processes.
 
-Elixir is built on top of *Erlang*. Erlang was created in Ericsson in the late eighties and became opensource in the late nineties. Since then Erlang has grown in popularity to build fault-tolerant real-time applications. Erlang is untyped, has garbage collection and works with message passing between processes. Today Erlang is more than a language as it has a virtual machine and a standard library focused in *concurrency*.
+One of the key concepts in functional programming is immutability, which means that once a variable is assigned a value, it cannot be changed. This can make it easier to reason about your code and avoid bugs.
+
+Elixir also has a strong emphasis on pattern matching, which allows you to easily deconstruct data structures and bind variables to their contents. This makes it easy to write concise and expressive code.
+
+Another important feature of Elixir is its support for functional concurrency, which allows you to write code that can be executed concurrently in a reliable and scalable way. This is made possible by the Erlang VM, which uses lightweight processes to achieve concurrency.
+
+Overall, Elixir is a powerful and flexible functional programming language that is well-suited for a wide range of applications. Its simplicity and concurrency support make it a great choice for developers who want to write efficient and scalable code.
 
 Erlang powers some of the most scalable systems in the world. Probably the best example is WhatsApp, with millions and millions of messages by minute. [See how Rick Reed discusses how they acomplished this](https://www.erlang-solutions.com/blog/the-best-code-beam-sf-talks-from-the-2010s.html)
-
-José Valim, created the Elixir programming language as a research and development project of Plataformatec. His goals were to enable higher extensibility and productivity in the Erlang VM while keeping compatibility with Erlang's ecosystem.
-
-José Valim aimed to create a programming language for large-scale sites and apps. Being a Ruby developer, he used features of Ruby, Erlang, and Clojure to develop a high-concurrency and low-latency language. Elixir was designed to handle large data volumes. Its speed and capabilities spread Elixir in telecommunication, eCommerce, and finance industries.
 
 
 &nbsp;

@@ -7,24 +7,34 @@ jani.immonen@jamk.fi
 
 From [Wikipedia](https://en.wikipedia.org/wiki/Functional_programming)
 
-In computer science, functional programming is a programming paradigm where programs are constructed by applying and composing functions. It is a declarative programming paradigm in which function definitions are trees of expressions that each return a value, rather than a sequence of imperative statements which change the state of the program.
+Functional programming is a programming paradigm that is based on the idea of treating computation as the evaluation of mathematical functions. It is a declarative programming style, meaning that the programmer specifies what needs to be done, rather than how it should be done.
 
-In functional programming, functions are treated as first-class citizens, meaning that they can be bound to names (including local identifiers), passed as arguments, and returned from other functions, just as any other data type can. This allows programs to be written in a declarative and composable style, where small functions are combined in a modular manner.
+Functional programming has its roots in lambda calculus, which is a formal system for expressing computation based on function abstraction and application. This mathematical foundation gives functional programming its theoretical underpinnings.
 
-Functional langauges empazies on expressions and declarations rather than execution of statements. Therefore, unlike other procedures which depend on a local or global state, value output in functional programming depends only on the arguments passed to the function.
+One of the key principles of functional programming is immutability, which means that the state of a program cannot be changed once it has been initialized. This allows for more predictable and reliable code, as well as easier parallelization and concurrency.
+
+Another important concept in functional programming is referential transparency, which means that a function will always produce the same result given the same input. This makes it easier to reason about and test code, as well as optimize and reuse it.
+
+Functional programming languages also often have strong support for higher-order functions, which are functions that can take other functions as arguments or return them as outputs. This allows for a more flexible and modular approach to programming.
+
+Overall, functional programming offers many benefits for developers, such as improved reliability, ease of testing and debugging, and easier parallelization and concurrency. While it may require a different way of thinking for some programmers, the benefits of functional programming make it a powerful tool in the programmer's toolkit.
 
 &nbsp;
 ### **Functional Programming Languages**
+
+There are many programming languages that support functional programming, some of the most popular ones include:
+
 Here are some most prominent Functional programming languages:
-- [Haskell](https://www.haskell.org/)
-- [SML](https://smlfamily.github.io/)
-- [Clojure](https://clojure.org/)
-- [Scala](https://scala-lang.org/)
-- [Erlang/Elixir](https://elixir-lang.org/)
+- [Haskell](https://www.haskell.org/): a purely functional programming language that is known for its strong static typing and clean, expressive syntax.
+- [SML](https://smlfamily.github.io/): powerful and widely-used functional programming language that is known for its strong static typing and support for type inference.
+- [Clojure](https://clojure.org/): powerful and flexible programming language that is well-suited for a wide range of applications.
+- [Scala](https://scala-lang.org/): a hybrid functional-imperative language that runs on the Java Virtual Machine and is known for its support for functional programming and concurrency.
+- [Erlang/Elixir](https://elixir-lang.org/): a dynamic, functional language that runs on the Erlang VM and is known for its simplicity and ability to handle concurrent processes.
 - [Clean](https://clean.cs.ru.nl/Clean)
-- [F#](https://fsharp.org/)
+- [F#](https://fsharp.org/): a functional-first programming language that runs on the .NET platform and is well-suited for functional-imperative programming.
 - [Mathematica](https://www.wolfram.com/language/)
 - SQL
+
 
 &nbsp;
 ### **Terminology and Concepts**
