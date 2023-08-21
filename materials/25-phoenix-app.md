@@ -22,14 +22,6 @@ Type **Y** or press enter to download and install dependecies. After install is 
 
 > If you get errors while installing dependencies, check the previous lesson for installing and setting up required software.
 
-Go to the **holiday** folder and create the database:
-
-    $ cd holiday
-    $ mix ecto.create
-    Compiling 14 files (.ex)
-    Generated holiday app
-    The database for Holiday.Repo has been created
-
 To change the database username or password, see **config/dev.exs** file:
 
     # Configure your database
@@ -40,6 +32,14 @@ To change the database username or password, see **config/dev.exs** file:
         hostname: "localhost",
         show_sensitive_data_on_connection_error: true,
         pool_size: 10
+
+Go to the **holiday** folder and create the database:
+
+    $ cd holiday
+    $ mix ecto.create
+    Compiling 14 files (.ex)
+    Generated holiday app
+    The database for Holiday.Repo has been created
 
 Next, start the Phoenix server:
 
@@ -267,5 +267,5 @@ And lastly, download your favorite holiday image and place it into **assets/stat
 
 &nbsp;
 ----
-**© 2022 Jani Immonen**
+**© 2023 Jani Immonen**
 

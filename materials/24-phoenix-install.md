@@ -87,6 +87,31 @@ Mac OS X and Windows users already have a filesystem watcher but Linux users nee
 
 
 &nbsp;
+### **Linux install (quick list)**
+
+    $ sudo apt install erlang-dev
+    $ sudo apt install elixir
+    $ sudo apt install npm
+    $ sudo apt install nodejs
+    $ sudo apt install postgresql
+
+    $ sudo -u postgres -i
+    $ createuser -l -d -P postgres
+    $ [ENTER PASSWORD "postgres"]
+    $ exit
+
+    Download Visual Studio Code debian installation package
+    $ sudo dpkg -i [VSCODE_PACKAGE_NAME]
+
+    Install Phoenix 'new' tool
+    $ mix archive.install hex phx_new 1.5.7
+    
+
+&nbsp;
+
+
+
+&nbsp;
 ----
-**© 2022 Jani Immonen**
+**© 2023 Jani Immonen**
 
