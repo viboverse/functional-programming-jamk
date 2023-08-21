@@ -42,21 +42,9 @@ Store your home assingments in GitLab and return the link to your GitLab project
 
 
 &nbsp;
-## **Grading**
-* Home assignments max. 10 points, accept level 3 points.
-* Exam max. 10 points, accept level 2 points.
-* Participation to lessons max 10 points, accept level 1 point.
+## Grading & Deliverables
 
-| Points | Grade |
-|:--------|:----------:|
-| 0 - 5 | 0 |
-| 6 - 10 | 1 |
-| 11 - 15 | 2 |
-| 16 - 20 | 3 |
-| 21 - 25 | 4 |
-| 26 - 30 | 5 |
-
-If you already know the topics of this course, contact lecturer for an optional mode of course execution.
+See course Moodle page for info about grading and deliverables.
 
 
 &nbsp;
