@@ -10,8 +10,11 @@ Test your solutions with different inputs to ensure they work correctly in all c
 ### Exercise 1: Simple Pattern Matching with Variables
 
 1.1. Assign the value `42` to a variable `x`.
+
 1.2. Use pattern matching to check if `x` is equal to `42`.
+
 1.3. Use pattern matching to check if `x` is equal to `41`.
+
 
 ### Exercise 2: Matching on Lists
 
