@@ -11,6 +11,7 @@ Implement a game of Blackjack against computer.
 - No need to implement betting, each game results of win or loss for the player.
 - No need to implement hidden cards, assume that player and dealer cards are visible.
 - Allow option to play again.
+- No not worry about intriquities of Blackjack rules. Concentrate on technical implementation.
 
 &nbsp;
 ----
