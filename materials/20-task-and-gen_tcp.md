@@ -84,7 +84,7 @@ Start an IEx session inside the valuestorage_server application with **iex -S mi
 
 The server is now running, and you will even notice the console is blocked. Let's use a telnet client to access our server. There are clients available on most operating systems, and their command lines are generally similar:
 
-In Windows 10 you have to enable the built-in telnet client. Open the command prompt as an administrator and enter command:
+In Windows you have to enable the built-in telnet client. Open the command prompt as an administrator and enter command:
 
     dism /online /Enable-Feature /FeatureName:TelnetClient
 
@@ -103,7 +103,7 @@ In Windows 10 you have to enable the built-in telnet client. Open the command pr
 
 Type *hello*, press enter, and you will get *hello* back.
 
-My particular telnet client can be exited by typing ctrl + ], typing quit, and pressing <Enter>, but your client may require different steps.
+Telnet client can be exited by simply closing the command prompt window.
 
 Once you exit the telnet client, you will likely see an error in the IEx session:
 
@@ -137,13 +137,7 @@ Let's give it a try. Open up lib/value_storage_server/application.ex, and let's 
 
 As usual, we've passed a two-element tuple as a child specification, which in turn will invoke Task.start_link/1.
 
-With this change, we are saying that we want to run ValueStorageServer.accept(4040) as a task. We are hardcoding the port for now but this could be changed in a few ways, for example, by reading the port out of the system environment when starting the application:
-
-    port = String.to_integer(System.get_env("PORT") || "4040")
-    # ...
-    {Task, fn -> ValueStorageServer.accept(port) end}
-
-Insert these changes in your code and now you may start your application using the following command PORT=4321 mix run --no-halt, notice how we are passing the port as a variable, but still defaults to 4040 if none is given.
+With this change, we are saying that we want to run ValueStorageServer.accept(4040) as a task. Now you may start your application using the following command **mix run --no-halt**.
 
 Now that the server is part of the supervision tree, it should start automatically when we run the application. Start your server, now passing the port, and once again use the telnet client to make sure that everything still works:
 
@@ -201,11 +195,9 @@ We fixed the issue for the registry by using a simple one for one supervisor. We
 Let's change start/2 once again, to add a supervisor to our tree:
 
     def start(_type, _args) do
-        port = String.to_integer(System.get_env("PORT") || "4040")
-
         children = [
             {Task.Supervisor, name: ValueStorageServer.TaskSupervisor},
-            {Task, fn -> ValueStorageServer.accept(port) end}
+            {Task, fn -> ValueStorageServer.accept(4040) end}
         ]
 
         opts = [strategy: :one_for_one, name: ValueStorageServer.Supervisor]
@@ -225,7 +217,7 @@ Now we need to change loop_acceptor/1 to use Task.Supervisor to serve each reque
 
 You might notice that we added a line, :ok = :gen_tcp.controlling_process(client, pid). This makes the child process the *controlling process* of the client socket. If we didn't do this, the acceptor would bring down all the clients if it crashed because sockets would be tied to the process that accepted them (which is the default behaviour).
 
-Start a new server with PORT=4040 mix run --no-halt and we can now open up many concurrent telnet clients. You will also notice that quitting a client does not bring the acceptor down.
+Start a new server with **mix run --no-halt** and we can now open up many concurrent telnet clients. You will also notice that quitting a client does not bring the acceptor down.
 
 Here is the full echo server implementation:
 
@@ -276,11 +268,9 @@ However, there is still one concern left, which are the restart strategies. Task
 We could fix this by defining our own module that calls use Task, restart: :permanent and invokes a start_link function responsible for restarting the task, quite similar to Agent and GenServer. However, let's take a different approach here. When integrating with someone else's library, we won't be able to change how their agents, tasks, and servers are defined. Instead, we need to be able to customize their child specification dynamically. This can be done by using Supervisor.child_spec/2, a function that we happen to know from previous lessons. Let's rewrite start/2 in ValueStorageServer.Application once more:
 
     def start(_type, _args) do
-        port = String.to_integer(System.get_env("PORT") || "4040")
-
         children = [
             {Task.Supervisor, name: ValueStorageServer.TaskSupervisor},
-            Supervisor.child_spec({Task, fn -> ValueStorageServer.accept(port) end}, restart: :permanent)
+            Supervisor.child_spec({Task, fn -> ValueStorageServer.accept(4040) end}, restart: :permanent)
         ]
 
         opts = [strategy: :one_for_one, name: ValueStorageServer.Supervisor]
