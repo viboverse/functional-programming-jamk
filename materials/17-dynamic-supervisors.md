@@ -157,7 +157,15 @@ Now that we have defined our supervision tree, it is a great opportunity to intr
 
 A GUI should pop-up containing all sorts of information about our system, from general statistics to load charts as well as a list of all running processes and applications.
 
-Note: If observer does not start, here is what may have happened: some package managers default to installing a minimized Erlang without WX bindings for GUI support. In some package managers, you may be able to replace the headless Erlang with a more complete package (look for packages named erlang vs erlang-nox on Debian/Ubuntu/Arch). In others managers, you may need to install a separate erlang-wx (or similarly named) package. Alternatively, you can skip this section and continue the guide.
+Note: If observer does not start, you may need to add extra_applications to your mix.exs file:
+
+    def application do
+    [
+        extra_applications: [:logger, :observer, :wx, :runtime_tools],
+        mod: {ValueStorage, []}
+    ]
+    end
+
 
 ![](./img/elixir-observer.png "Observer GUI screenshot")
 
