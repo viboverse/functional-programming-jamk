@@ -245,7 +245,7 @@ We also need to edit the index page template to apply the countdown clock to the
     });
     </script>
 
-Just couple of more styling modifications; Center the clock and replace the Phoenix logo with our own. Open **assets/css/app.scss** and add:
+Just couple of more styling modifications; Center the clock and replace the Phoenix logo with our own. Open **assets/css/app.css** and add:
 
     .jumbotron .flip-clock-wrapper {
         text-align: center;
@@ -255,13 +255,10 @@ Just couple of more styling modifications; Center the clock and replace the Phoe
         display: inline-block;
     }
 
-And lastly, download your favorite holiday image and place it into **assets/static/images/** directory. This example is assuming file is named *holiday.jpg*, use the filename of your own file. Open **lib/holiday_web/components/layouts/root.html.heex** and change the logo image path:
+And lastly, download your favorite holiday image and place it into **priv/static/images/** directory. This example is assuming file is named *holiday.jpg*, use the filename of your own file. Open **lib/holiday_web/controllers/page_html/home.html.heex** and add inside *<div class="jumbotron">*
 
-    <a href="https://phoenixframework.org/" class="phx-logo">
-        <img src="<%= Routes.static_path(@conn, "/images/holiday.jpg") %>" alt="Time until holiday"/>
-    </a>
+    <img src={~p"/images/holiday.jpg"} width="256" />
 
-> Note that Phoenix server needs to be restarted when static assets are updated.
 
 
 
