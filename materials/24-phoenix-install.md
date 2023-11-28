@@ -46,28 +46,26 @@ Elixir 1.6 and Erlang 20 are the minimum requirements. Check your versions and u
 
 Next we will install the Phoenix application generator:
 
-    $ mix archive.install hex phx_new 1.5.7
+    $ mix archive.install hex phx_new
 
 
 &nbsp;
 ### **node.js**
 Phoenix uses webpack to compile static assets (JavaScript, CSS, etc), by default. Webpack uses the **node package manager (npm)** to install its dependencies, and npm requires node.js.
 
-**NOTE** Latest version of node.js does not seem to work. Browse the older versions of node.js installs and install the version 6.14.15.
-
-Download and install node.js from the [download page](https://nodejs.org/en/download/). If you have a old installation, note that Phoenix requires node.js version 5.0.0 or greater.
-
-On Windows, after installation, add the path **C:\\Program Files\\nodejs\\** to system environment variables:
-- Win+Q and type "envi". Open the **Edit the system environment variables**
-- On **Advanced** tab, click **Environment Variables...**
-- Double click the **Path** user variable
-- Click **New** and enter **C:\\Program Files\\nodejs\\** (the default node.js install location)
-- Click **Ok** until all popups are closed
+Download and install node.js from the [download page](https://nodejs.org/en/download/).
 
 Then test that **npm** is installed and configured properly. Open command prompt and type:
 
     $ npm -v
     6.14.15
+
+If npm does not work, you may need to set paths mamually. Add the path **C:\\Program Files\\nodejs\\** to system environment variables:
+- Win+Q and type "envi". Open the **Edit the system environment variables**
+- On **Advanced** tab, click **Environment Variables...**
+- Double click the **Path** user variable
+- Click **New** and enter **C:\\Program Files\\nodejs\\** (the default node.js install location)
+- Click **Ok** until all popups are closed
 
 
 &nbsp;
@@ -104,7 +102,7 @@ Mac OS X and Windows users already have a filesystem watcher but Linux users nee
     $ sudo dpkg -i [VSCODE_PACKAGE_NAME]
 
     Install Phoenix 'new' tool
-    $ mix archive.install hex phx_new 1.5.7
+    $ mix archive.install hex phx_new
     
 
 &nbsp;

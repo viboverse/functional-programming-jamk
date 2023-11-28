@@ -155,7 +155,7 @@ Next, edit the **lib/holiday_web/router.ex** and add the *resources* specificati
     scope "/", HolidayWeb do
         pipe_through :browser
 
-        get "/", PageController, :index
+        get "/", PageController, :home
         resources "/events", EventController
     end
 
@@ -194,12 +194,12 @@ Next, we add this to the controller and display some items on the homepage. Let'
 
         def index(conn, _params) do
             events = Events.list_future_events()
-            # render(conn, "index.html")
-            render conn, "index.html", events: events
+            # render(conn, :home)
+            render conn, :home, events: events
         end
     end
 
-Now we need to edit our homepage template at **lib/holiday_web/templates/page/index.html.eex**. Replace the contents with following:
+Now we need to edit our homepage template at **lib/holiday_web/controllers/page_html/home.html.heex**. Replace the contents with following:
 
     <section class="phx-hero">
         <h1><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h1>
@@ -217,19 +217,19 @@ Now our webpage shows a simple list of future events. You can verify this by add
 
 &nbsp;
 ### **Adding a clock**
-We are going to use FlipClock.js to create our countdown clocks. Open the file **lib/holiday_web/templates/layout/app.html.eex** for editing and add following stylesheet and scripts to **head** section of the file:
+We are going to use FlipClock.js to create our countdown clocks. Open the file **lib/holiday_web/components/layouts/root.html.heex** for editing and add following stylesheet and scripts to **head** section of the file:
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.css" />
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.js"></script>
 
-We also need to edit the index page template to apply the countdown clock to the page. Replace the contents of the **lib/holiday_web/templates/page/index.html.eex** with:
+We also need to edit the index page template to apply the countdown clock to the page. Replace the contents of the **lib/holiday_web/controllers/page_html/home.html.heex** with:
 
     <%= for event <- @events do %>
-        <div class="jumbotron">
-        <span class="h1">Days until <%= event.title %></span>
-        <p class="text-center"><span class="countdownClock" data-due="<%= event.due %>"></span></p>
-        </div>
+    <div class="jumbotron">
+    <span class="h1">Days until <%= event.title %></span>
+    <p class="text-center"><span class="countdownClock" data-due={event.due}></span></p>
+    </div>
     <% end %>
     <script>
     $(document).ready(function() {
@@ -255,7 +255,7 @@ Just couple of more styling modifications; Center the clock and replace the Phoe
         display: inline-block;
     }
 
-And lastly, download your favorite holiday image and place it into **assets/static/images/** directory. This example is assuming file is named *holiday.jpg*, use the filename of your own file. Open **lib/holiday_web/templates/layout/app.html.eex** and change the logo image path:
+And lastly, download your favorite holiday image and place it into **assets/static/images/** directory. This example is assuming file is named *holiday.jpg*, use the filename of your own file. Open **lib/holiday_web/components/layouts/root.html.heex** and change the logo image path:
 
     <a href="https://phoenixframework.org/" class="phx-logo">
         <img src="<%= Routes.static_path(@conn, "/images/holiday.jpg") %>" alt="Time until holiday"/>
