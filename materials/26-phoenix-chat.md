@@ -104,7 +104,7 @@ After that, we need to make sure **assets/js/user_socket.js** gets imported into
 In **lib/chat_web/controllers/page_html/home.html.heex**, replace all the existing code with a container to hold our chat messages, and an input field to send them:
 
     <div id="messages" role="log" aria-live="polite"></div>
-    <input id="chat-input" type="text"></input>
+    <input id="chat-input" type="text">
 
 Now, add a couple of event listeners to **assets/js/user_socket.js**. Replace the code below **socket.connect()** with:
 
