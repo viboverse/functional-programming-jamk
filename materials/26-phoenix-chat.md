@@ -139,20 +139,15 @@ Now we listen for the *"new_msg"* event using channel.on, and then append the me
 
 &nbsp;
 ### **Incoming Events**
-We handle incoming events with **handle_in/3**. We can pattern match on the event names, like *"new_msg"*, and then grab the payload that the client passed over the channel. For our chat application, we simply need to notify all other *room:lobby* subscribers of the new message with **broadcast!/3**.
+We handle incoming events with **handle_in/3**. We can pattern match on the event names, like *"new_msg"*, and then grab the payload that the client passed over the channel. For our chat application, we simply need to notify all other *room:lobby* subscribers of the new message with **broadcast/3**.
 
     defmodule ChatWeb.RoomChannel do
         use Phoenix.Channel
 
-        def join("room:lobby", _message, socket) do
-            {:ok, socket}
-        end
-        def join("room:" <> _private_room_id, _params, _socket) do
-            {:error, %{reason: "unauthorized"}}
-        end
+        ...
 
         def handle_in("new_msg", %{"body" => body}, socket) do
-            broadcast!(socket, "new_msg", %{body: body})
+            broadcast(socket, "new_msg", %{body: body})
             {:noreply, socket}
         end
     end
