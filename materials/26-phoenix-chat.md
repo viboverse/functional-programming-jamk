@@ -43,16 +43,21 @@ To stop the application, tap **ctrl+c** twice on command prompt.
 
 &nbsp;
 ### **Channel endpoints**
-Open the **lib/chat_web/endpoint.ex**. You will notice that the endpoint is already set up in there:
+Since Phoenix 1.3, there’s a built-in mix task for channels that will create files and do some of the boilerplate work for you. Issue a command:
+
+    mix phx.gen.channel Room
+
+Open the **lib/chat_web/endpoint.ex**. Add a new line to define the user socket:
 
     defmodule ChatWeb.Endpoint do
         use Phoenix.Endpoint, otp_app: :chat
 
-        socket "/socket", ChatWeb.UserSocket
+        socket "/socket", ChatWeb.UserSocket, websocket: true, longpoll: false
+
         ...
     end
 
-In **lib/chat_web/channels/user_socket.ex**, the ChatWeb.UserSocket we pointed to in our endpoint has already been created when we generated our application. We need to make sure messages get routed to the correct channel. To do that, we'll uncomment the *"room:*"* channel definition:
+In **lib/chat_web/channels/user_socket.ex**, the ChatWeb.UserSocket we pointed to in our endpoint has been created by the *mix phx.gen.channel* command. We need to make sure messages get routed to the correct channel. To do that, we check the *"room:*"* channel definition:
 
     defmodule ChatWeb.UserSocket do
         use Phoenix.Socket
@@ -61,46 +66,47 @@ In **lib/chat_web/channels/user_socket.ex**, the ChatWeb.UserSocket we pointed t
         channel "room:*", ChatWeb.RoomChannel
         ...
 
-Now, whenever a client sends a message whose topic starts with "room:", it will be routed to our RoomChannel. Next, we'll define a ChatWeb.RoomChannel module to manage our chat room messages.
+Now, whenever a client sends a message whose topic starts with "room:", it will be routed to our RoomChannel. Next, we'll check the ChatWeb.RoomChannel module to manage our chat room messages.
 
 
 &nbsp;
 ### **Joining Channels**
-The first priority of your channels is to authorize clients to join a given topic. For authorization, we must implement join/3 in **lib/chat_web/channels/room_channel.ex**.
+The first priority of your channels is to authorize clients to join a given topic. For authorization, lets check the join/3 in **lib/chat_web/channels/room_channel.ex**.
 
     defmodule ChatWeb.RoomChannel do
         use Phoenix.Channel
 
-        def join("room:lobby", _message, socket) do
-            {:ok, socket}
-        end
-
-        def join("room:" <> _private_room_id, _params, _socket) do
-            {:error, %{reason: "unauthorized"}}
+        @impl true
+        def join("room:lobby", payload, socket) do
+            if authorized?(payload) do
+                {:ok, socket}
+            else
+                {:error, %{reason: "unauthorized"}}
+            end
         end
     end
 
 For our chat app, we'll allow anyone to join the "room:lobby" topic, but any other room will be considered private and special authorization, say from a database, will be required. (We won't worry about private chat rooms for this exercise, but feel free to explore them).
 
-To authorize the socket to join a topic, we return **{:ok, socket}** or **{:ok, reply, socket}**. To deny access, we return **{:error, reply}**. More information about authorization with tokens can be found in the [Phoenix.Token documentation](https://hexdocs.pm/phoenix/Phoenix.Token.html).
+To authorize the socket to join a topic, we return **{:ok, socket}**. To deny access, we return **{:error, reply}**. More information about authorization with tokens can be found in the [Phoenix.Token documentation](https://hexdocs.pm/phoenix/Phoenix.Token.html).
 
 Phoenix projects come with [webpack](https://webpack.js.org/) by default, unless disabled with the --no-webpack option when you run **mix phx.new**.
 
-The **assets/js/socket.js** defines a simple client based on the socket implementation that ships with Phoenix. We can use that library to connect to our socket and join our channel, we just need to set our room name to "room:lobby" in that file. Modify the line:
+The **assets/js/user_socket.js** defines a simple client based on the socket implementation that ships with Phoenix. We can use that library to connect to our socket and join our channel, we just need to set our room name to "room:lobby" in that file. Modify the line:
 
-    //let channel = socket.channel("topic:subtopic", {})
+    //let channel = socket.channel("room:42", {})
     let channel = socket.channel("room:lobby", {})
 
-After that, we need to make sure **assets/js/socket.js** gets imported into our application JavaScript file. To do that, add a new line to the end of **assets/js/app.js**:
+After that, we need to make sure **assets/js/user_socket.js** gets imported into our application JavaScript file. To do that, add a new line to the end of **assets/js/app.js**:
 
-    import socket from "./socket"
+    import "./user_socket.js"
 
-In **lib/chat_web/templates/page/index.html.eex**, replace all the existing code with a container to hold our chat messages, and an input field to send them:
+In **lib/chat_web/controllers/page_html/home.html.heex**, replace all the existing code with a container to hold our chat messages, and an input field to send them:
 
     <div id="messages" role="log" aria-live="polite"></div>
-    <input id="chat-input" type="text"></input>
+    <input id="chat-input" type="text">
 
-Now, add a couple of event listeners to **assets/js/socket.js**. Replace the code below **socket.connect()** with:
+Now, add a couple of event listeners to **assets/js/user_socket.js**. Replace the code below **socket.connect()** with:
 
     // ...
     let channel           = socket.channel("room:lobby", {})
@@ -115,8 +121,8 @@ Now, add a couple of event listeners to **assets/js/socket.js**. Replace the cod
     })
 
     channel.join()
-    .receive("ok", resp => { console.log("Joined successfully", resp) })
-    .receive("error", resp => { console.log("Unable to join", resp) })
+        .receive("ok", resp => { console.log("Joined successfully", resp) })
+        .receive("error", resp => { console.log("Unable to join", resp) })
 
     export default socket
 
@@ -133,20 +139,15 @@ Now we listen for the *"new_msg"* event using channel.on, and then append the me
 
 &nbsp;
 ### **Incoming Events**
-We handle incoming events with **handle_in/3**. We can pattern match on the event names, like *"new_msg"*, and then grab the payload that the client passed over the channel. For our chat application, we simply need to notify all other *room:lobby* subscribers of the new message with **broadcast!/3**.
+We handle incoming events with **handle_in/3**. We can pattern match on the event names, like *"new_msg"*, and then grab the payload that the client passed over the channel. For our chat application, we simply need to notify all other *room:lobby* subscribers of the new message with **broadcast/3**.
 
     defmodule ChatWeb.RoomChannel do
         use Phoenix.Channel
 
-        def join("room:lobby", _message, socket) do
-            {:ok, socket}
-        end
-        def join("room:" <> _private_room_id, _params, _socket) do
-            {:error, %{reason: "unauthorized"}}
-        end
+        ...
 
         def handle_in("new_msg", %{"body" => body}, socket) do
-            broadcast!(socket, "new_msg", %{body: body})
+            broadcast(socket, "new_msg", %{body: body})
             {:noreply, socket}
         end
     end
