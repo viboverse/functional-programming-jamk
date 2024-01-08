@@ -264,5 +264,5 @@ And lastly, download your favorite holiday image and place it into **priv/static
 
 &nbsp;
 ----
-**© 2023 Jani Immonen**
+**© 2024 Jani Immonen**
 

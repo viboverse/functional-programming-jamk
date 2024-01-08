@@ -15,5 +15,5 @@ Implement a game of Blackjack against computer.
 
 &nbsp;
 ----
-**© 2023 Jani Immonen**
+**© 2024 Jani Immonen**
 

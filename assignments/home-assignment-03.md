@@ -25,5 +25,5 @@ Write an anonymous function that takes two parameters:
 
 &nbsp;
 ----
-**© 2023 Jani Immonen**
+**© 2024 Jani Immonen**
 

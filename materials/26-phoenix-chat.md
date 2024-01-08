@@ -158,5 +158,5 @@ Now, fire up as many browser tabs/instances and try the chat app in practise.
 
 &nbsp;
 ----
-**© 2023 Jani Immonen**
+**© 2024 Jani Immonen**
 

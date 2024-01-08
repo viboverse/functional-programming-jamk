@@ -49,5 +49,5 @@ See course Moodle page for info about grading and deliverables.
 
 &nbsp;
 ----
-**© 2023 Jani Immonen**
+**© 2024 Jani Immonen**
 
