@@ -13,8 +13,8 @@ In this lesson we will learn more about Elixir basic types: integers, floats, bo
     iex> true       # boolean
     iex> :atom      # atom / symbol
     iex> "elixir"   # string
-    iex> [1, 2, 3]  # list
-    iex> {1, 2, 3}  # tuple
+    iex> [1, 2, 3]  # list (linked)
+    iex> {1, 2, 3}  # tuple (array)
 
 &nbsp;
 ### **Basic arithmetic**
