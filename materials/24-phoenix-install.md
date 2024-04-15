@@ -60,7 +60,7 @@ Then test that **npm** is installed and configured properly. Open command prompt
     $ npm -v
     6.14.15
 
-If npm does not work, you may need to set paths mamually. Add the path **C:\\Program Files\\nodejs\\** to system environment variables:
+If npm does not work, you may need to set paths manually. Add the path **C:\\Program Files\\nodejs\\** to system environment variables:
 - Win+Q and type "envi". Open the **Edit the system environment variables**
 - On **Advanced** tab, click **Environment Variables...**
 - Double click the **Path** user variable
