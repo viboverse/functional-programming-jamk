@@ -87,6 +87,11 @@ Mac OS X and Windows users already have a filesystem watcher but Linux users nee
 &nbsp;
 ### **Linux install (quick list)**
 
+if running Ubuntu:
+    $ sudo add-apt-repository ppa:rabbitmq/rabbitmq-erlang
+    $ sudo apt update
+
+Packages:
     $ sudo apt install erlang-dev
     $ sudo apt install elixir
     $ sudo apt install npm
