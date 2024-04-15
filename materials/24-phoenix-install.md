@@ -108,6 +108,7 @@ Packages:
     $ sudo dpkg -i [VSCODE_PACKAGE_NAME]
 
     Install Phoenix 'new' tool
+    $ mix local.hex
     $ mix archive.install hex phx_new
     
 
