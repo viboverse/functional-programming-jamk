@@ -186,13 +186,13 @@ Lets use the web interface to create new event called *Holiday* and set the due 
         Repo.all(query)
     end
 
-Next, we add this to the controller and display some items on the homepage. Let's edit our homepage controller at **lib/holiday_web/controllers/page_controller.ex**. Add the line **alias Holiday.Events** and modify *index* function accordingly:
+Next, we add this to the controller and display some items on the homepage. Let's edit our homepage controller at **lib/holiday_web/controllers/page_controller.ex**. Add the line **alias Holiday.Events** and modify *home* function accordingly:
 
     defmodule HolidayWeb.PageController do
         use HolidayWeb, :controller
         alias Holiday.Events
 
-        def index(conn, _params) do
+        def home(conn, _params) do
             events = Events.list_future_events()
             # render(conn, :home)
             render conn, :home, events: events
@@ -223,7 +223,7 @@ We are going to use FlipClock.js to create our countdown clocks. Open the file *
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.js"></script>
 
-We also need to edit the index page template to apply the countdown clock to the page. Replace the contents of the **lib/holiday_web/controllers/page_html/home.html.heex** with:
+We also need to edit the home page template to apply the countdown clock to the page. Replace the contents of the **lib/holiday_web/controllers/page_html/home.html.heex** with:
 
     <%= for event <- @events do %>
     <div class="jumbotron">
