@@ -51,6 +51,7 @@ Test your solutions with different inputs to ensure they work correctly in all c
 ### Exercise 8: Working with List Head and Tail
 
 8.1. Given a list, use pattern matching to:
+
     - Retrieve the head of the list
     - Retrieve the tail of the list
     - Check if the list is empty
