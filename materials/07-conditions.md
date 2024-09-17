@@ -11,9 +11,9 @@ In this lesson, we will learn about the case, cond, and if control flow structur
 **case** allows us to compare a value against many patterns until we find a matching one:
 
     case {1, 2, 3} do
-        {4, 5, 6} -> IO.puts "This clause won't match"
-        {1, x, 3} -> IO.puts "This clause will match and bind x to 2 in this clause"
-        _ -> IO.puts "This clause would match any value"
+        {4, 5, 6} -> IO.puts("This clause won't match")
+        {1, x, 3} -> IO.puts("This clause will match and bind x to #{x} in this clause")
+        _ -> IO.puts("This clause would match any value")
     end
 
     "This clause will match and bind x to 2 in this clause"
@@ -22,31 +22,31 @@ If you want to pattern match against an existing variable, you need to use the *
 
     x = 1
     case 10 do
-        ^x -> IO.puts "Won't match"
-        _ -> IO.puts "Will match"
+        ^x -> IO.puts("Won't match. x=#{x}")
+        _ -> IO.puts("Will match anything")
     end
 
-    "Will match"
+    "Will match anything"
 
 Clauses also allow extra conditions to be specified via guards:
 
     case {1, 2, 3} do
-        {1, x, 3} when x > 0 -> IO.puts "Will match"
-        _ -> IO.puts "Would match, if guard condition were not satisfied"
+        {1, x, 3} when x > 0 -> IO.puts("Will match")
+        _ -> IO.puts("Would match, if guard condition were not satisfied")
     end
     
     "Will match"
 
 The first clause above will only match when **x** is positive.
 
-Keep in mind errors in guards do not leak but simply make the guard fail:
+Keep in mind runtime errors in guards do not crash the app but simply make the guard fail:
 
     # hd causes argument error on numeric variable, but
     # do not cause error on condition guard if guard is not true
     hd([1])
     case 1 do
-        x when hd(x) -> IO.puts "Won't match"
-        x -> IO.puts "Got #{x}"
+        x when hd(x) == 1 -> IO.puts("Won't match")
+        x -> IO.puts("Got #{x}")
     end
     
     "Got 1"
@@ -54,7 +54,7 @@ Keep in mind errors in guards do not leak but simply make the guard fail:
 If none of the clauses match, an error is raised:
 
     case :ok do
-        :error -> IO.puts "Won't match"
+        :error -> IO.puts("Won't match")
     end
     
     ** (CaseClauseError) no case clause matching: :ok
@@ -63,22 +63,20 @@ Consult the full documentation for guards for more information about guards, how
 
 Note anonymous functions can also have multiple clauses and guards:
 
-    f = fn
-        x, y when x > 0 -> x + y
-        x, y -> x * y
+    f = fn(x, y) when x > 0 -> x + y
+        (x, y) -> x * y
     end
 
-    IO.puts f.(1, 3)
-    IO.puts f.(-1, 3)
+    IO.puts(f.(1, 3))
+    IO.puts(f.(-1, 3))
 
     4
     -3
 
 The number of arguments in each anonymous function clause needs to be the same, otherwise an error is raised.
 
-    f2 = fn
-        x, y when x > 0 -> x + y
-        x, y, z -> x * y + z
+    f2 = fn(x, y) when x > 0 -> x + y
+        (x, y, z) -> x * y + z
     end
 
     ** (CompileError) iex:1: cannot mix clauses with different arities in anonymous functions
@@ -88,9 +86,9 @@ The number of arguments in each anonymous function clause needs to be the same, 
 **case** is useful when you need to match against different values. However, in many circumstances, we want to check different conditions and find the first one that does not evaluate to *nil* or *false*. In such cases, one may use **cond**:
 
     cond do
-        2 + 2 == 5 -> IO.puts "This will not be true"
-        2 * 2 == 3 -> IO.puts "Nor this"
-        1 + 1 == 2 -> IO.puts "But this will"
+        2 + 2 == 5 -> IO.puts("This will not be true")
+        2 * 2 == 3 -> IO.puts("Nor this")
+        1 + 1 == 2 -> IO.puts("But this will")
     end
     
     "But this will"
@@ -100,9 +98,9 @@ This is equivalent to else if clauses in many imperative languages, although use
 If all of the conditions return *nil* or *false*, an error (*CondClauseError*) is raised. For this reason, it may be necessary to add a final condition, equal to **true**, which will always match:
 
     cond do
-        2 + 2 == 5 -> IO.puts "This is never true"
-        2 * 2 == 3 -> IO.puts "Nor this"
-        true -> IO.puts "This is always true (equivalent to else)"
+        2 + 2 == 5 -> IO.puts("This is never true")
+        2 * 2 == 3 -> IO.puts("Nor this")
+        true -> IO.puts("This is always true (equivalent to else)")
     end
 
     "This is always true (equivalent to else)"
@@ -110,7 +108,7 @@ If all of the conditions return *nil* or *false*, an error (*CondClauseError*) i
 Finally, note **cond** considers any value besides *nil* and *false* to be true:
 
     cond do
-        hd([1, 2, 3]) -> IO.puts "1 is considered as true"
+        hd([1, 2, 3]) -> IO.puts("1 is considered as true")
     end
     
     "1 is considered as true"
@@ -120,13 +118,13 @@ Finally, note **cond** considers any value besides *nil* and *false* to be true:
 Besides **case** and **cond**, Elixir also provides the macros **if/2** and **unless/2** which are useful when you need to check for only one condition:
 
     if true do
-        IO.puts "This works!"
+        IO.puts("This works!")
     end
 
     "This works!"
 
     unless true do
-        IO.puts "This will never be seen"
+        IO.puts("This will never be seen")
     end
 
 If the condition given to **if/2** returns *false* or *nil*, the body given between *do/end* is not executed and instead it returns *nil*. The opposite happens with **unless/2**.
@@ -134,9 +132,9 @@ If the condition given to **if/2** returns *false* or *nil*, the body given betw
 They also support else blocks:
 
     if nil do
-        IO.puts "This won't be seen"
+        IO.puts("This won't be seen")
     else
-        IO.puts "This will"
+        IO.puts("This will")
     end
     
     "This will"
@@ -147,7 +145,7 @@ They also support else blocks:
 ### **do/end blocks**
 At this point, we have learned four control structures: **case**, **cond**, **if**, and **unless**, and they were all wrapped in *do/end* blocks. It happens we could also write if as follows:
 
-    if true, do: IO.puts 1 + 2
+    if true, do: IO.puts(1 + 2)
     
     3
 
@@ -162,7 +160,7 @@ Notice how the example above has a comma between *true* and *do:*, that's becaus
     if true do
         a = 1 + 2
         a = a + 10
-        IO.puts a
+        IO.puts(a)
     end
 
     13
@@ -177,7 +175,7 @@ Notice how the example above has a comma between *true* and *do:*, that's becaus
 One thing to keep in mind when using do/end blocks is they are always bound to the outermost function call. For example, the following expression:
 
     is_number if true do
-        IO.puts 1 + 2
+        IO.puts(1 + 2)
     end
     
     ** (CompileError) iex:1: undefined function is_number/2
