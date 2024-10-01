@@ -37,30 +37,6 @@ Keyword lists are important because they have three special characteristics:
 * Keys are ordered, as specified by the developer.
 * Keys can be given more than once.
 
-For example, the [Ecto library](https://github.com/elixir-lang/ecto) makes use of these features to provide an elegant DSL for writing database queries:
-
-    query = from w in Weather,
-        where: w.prcp > 0,
-        where: w.temp < 20,
-        select: w
-
-These characteristics are what prompted keyword lists to be the default mechanism for passing options to functions in Elixir. In previous lesson we discussed the if/2 macro, we mentioned that the following syntax is supported:
-
-    iex> if false, do: :this, else: :that
-    :that
-
-The do: and else: pairs form a keyword list. In fact, the call above is equivalent to:
-
-    iex> if(false, [do: :this, else: :that])
-    :that
-
-Which, as we have seen above, is the same as:
-
-    iex> if(false, [{:do, :this}, {:else, :that}])
-    :that
-
-In general, when the keyword list is the last argument of a function, the square brackets are optional.
-
 Although we can pattern match on keyword lists, it is rarely done in practice since pattern matching on lists requires the number of items and their order to match:
 
     iex> [a: a] = [a: 1]
@@ -174,13 +150,13 @@ We have a keyword list of users where each value is a map containing the name, a
 
 It happens we can also use this same syntax for updating the value:
 
-    iex> users = put_in users[:john].age, 31
+    iex> users = put_in(users[:john].age, 31)
     [john: %{age: 31, languages: ["Erlang", "Ruby", "Elixir"], name: "John"},
     mary: %{age: 29, languages: ["Elixir", "F#", "Python"], name: "Mary"}]
 
 The **update_in/2** macro is similar but allows us to pass a function that controls how the value changes. For example, let's remove *Python* from Mary's list of languages:
 
-    iex> users = update_in users[:mary].languages, fn languages -> List.delete(languages, "Python") end
+    iex> users = update_in(users[:mary].languages, fn languages -> List.delete(languages, "Python") end)
     [john: %{age: 31, languages: ["Erlang", "Ruby", "Elixir"], name: "John"},
     mary: %{age: 29, languages: ["Elixir", "F#"], name: "Mary"}]
 
