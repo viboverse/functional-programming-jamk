@@ -68,7 +68,7 @@ Let's put it all together and send messages between processes:
 
     iex> parent = self()
     #PID<0.41.0>
-    iex> spawn fn -> send(parent, {:hello, self()}) end
+    iex> spawn(fn -> send(parent, {:hello, self()}) end)
     #PID<0.48.0>
     iex> receive do
     ...>   {:hello, pid} -> "Got hello from #{inspect pid}"
