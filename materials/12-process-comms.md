@@ -89,7 +89,7 @@ While in the shell, you may find the helper flush/0 quite useful. It flushes and
 ### **Links**
 The majority of times we spawn processes in Elixir, we spawn them as linked processes. Before we show an example with spawn_link/1, let's see what happens when a process started with spawn/1 fails:
 
-    iex> spawn(fn -> raise "oops" end)
+    iex> spawn(fn -> raise("oops") end)
     #PID<0.58.0>
 
     [error] Process #PID<0.58.00> raised an exception
@@ -100,7 +100,7 @@ It merely logged an error but the parent process is still running. That's becaus
 
     iex> self()
     #PID<0.41.0>
-    iex> spawn_link(fn -> raise "oops" end)
+    iex> spawn_link(fn -> raise("oops") end)
 
     ** (EXIT from #PID<0.41.0>) evaluator process exited with reason: an exception was raised:
         ** (RuntimeError) oops
@@ -124,7 +124,7 @@ spawn/1 and spawn_link/1 are the basic primitives for creating processes in Elix
 ### **Tasks**
 Tasks build on top of the spawn functions to provide better error reports and introspection:
 
-    iex(1)> Task.start(fn -> raise "oops" end)
+    iex(1)> Task.start(fn -> raise("oops") end)
     {:ok, #PID<0.55.0>}
 
     15:22:33.046 [error] Task #PID<0.55.0> started from #PID<0.53.0> terminating
@@ -197,9 +197,9 @@ Using processes to maintain state and name registration are very common patterns
 
     iex> {:ok, pid} = Agent.start_link(fn -> %{} end)
     {:ok, #PID<0.72.0>}
-    iex> Agent.update(pid, fn map -> Map.put(map, :hello, :world) end)
+    iex> Agent.update(pid, fn(map) -> Map.put(map, :hello, :world) end)
     :ok
-    iex> Agent.get(pid, fn map -> Map.get(map, :hello) end)
+    iex> Agent.get(pid, fn(map) -> Map.get(map, :hello) end)
     :world
 
 A :name option could also be given to Agent.start_link/2 and it would be automatically registered. Besides agents, Elixir provides an API for building generic servers (called GenServer), tasks, and more, all powered by processes underneath.
