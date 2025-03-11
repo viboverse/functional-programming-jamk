@@ -35,9 +35,9 @@ And play a bit with agents:
 
     iex> {:ok, agent} = Agent.start_link(fn -> [] end)
     {:ok, #PID<0.57.0>}
-    iex> Agent.update(agent, fn list -> ["eggs" | list] end)
+    iex> Agent.update(agent, fn(list) -> ["eggs" | list] end)
     :ok
-    iex> Agent.get(agent, fn list -> list end)
+    iex> Agent.get(agent, fn(list) -> list end)
     ["eggs"]
     iex> Agent.stop(agent)
     :ok
@@ -48,15 +48,15 @@ The Agent.update/3 function accepts as a second argument any function that recei
 
     iex> {:ok, agent} = Agent.start_link(fn -> [] end)
     {:ok, #PID<0.338.0>}
-    iex> Agent.update(agent, fn _list -> 123 end)
+    iex> Agent.update(agent, fn(_list) -> 123 end)
     :ok
-    iex> Agent.update(agent, fn content -> %{a: content} end)
+    iex> Agent.update(agent, fn(content) -> %{a: content} end)
     :ok
-    iex> Agent.update(agent, fn content -> [12 | [content]] end)
+    iex> Agent.update(agent, fn(content) -> [12 | [content]] end)
     :ok
-    iex> Agent.update(agent, fn list -> [:nop | list] end)
+    iex> Agent.update(agent, fn(list) -> [:nop | list] end)
     :ok
-    iex> Agent.get(agent, fn content -> content end)
+    iex> Agent.get(agent, fn(content) -> content end)
     [:nop, 12, %{a: 123}]
     iex>
 
@@ -173,7 +173,7 @@ Besides getting a value and updating the agent state, agents allow us to get a v
 Lastly, let's discuss the client/server dichotomy in agents. Let's expand the delete/2 function we have just implemented:
 
     def delete(bucket, key) do
-        Agent.get_and_update(bucket, fn dict ->
+        Agent.get_and_update(bucket, fn(dict) ->
             Map.pop(dict, key)
         end)
     end
@@ -184,7 +184,7 @@ This distinction is important. If there are expensive actions to be done, you mu
 
     def delete(bucket, key) do
         Process.sleep(1000) # puts client to sleep
-        Agent.get_and_update(bucket, fn dict ->
+        Agent.get_and_update(bucket, fn(dict) ->
             Process.sleep(1000) # puts server to sleep
             Map.pop(dict, key)
         end)
