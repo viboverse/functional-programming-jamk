@@ -195,7 +195,7 @@ Next, we add this to the controller and display some items on the homepage. Let'
         def home(conn, _params) do
             events = Events.list_future_events()
             # render(conn, :home)
-            render conn, :home, events: events
+            render(conn, :home, events: events)
         end
     end
 
@@ -203,7 +203,7 @@ Now we need to edit our homepage template at **lib/holiday_web/controllers/page_
 
     <section class="phx-hero">
         <h1><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h1>
-        <p>Peace of mind from prototype to production</p>
+        <p>List of future events:</p>
     </section>
 
     <ul>
