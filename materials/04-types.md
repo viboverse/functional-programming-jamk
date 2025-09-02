@@ -33,7 +33,7 @@ Notice that 10 / 2 returned a float 5.0 instead of an integer 5. This is expecte
     5
     iex> div 10, 2
     5
-    iex> rem 10, 3
+    iex> rem(10, 3)
     1
 
 Notice that Elixir allows you to drop the parentheses when invoking named functions. This feature gives a cleaner syntax when writing declarations and control-flow constructs.
@@ -186,7 +186,7 @@ The String module contains a bunch of functions that operate on strings as defin
 ### **Anonymous functions**
 Elixir also provides anonymous functions. Anonymous functions allow us to store and pass executable code around as if it was an integer or a string. They are delimited by the keywords **fn** and **end**:
 
-    iex> add = fn a, b -> a + b end
+    iex> add = fn(a, b) -> a + b end
     #Function<12.71889879/2 in :erl_eval.expr/5>
     iex> add.(1, 2)
     3
@@ -208,7 +208,7 @@ Anonymous functions in Elixir are also identified by the number of arguments the
 
 Finally, anonymous functions are also closures and as such they can access variables that are in scope when the function is defined. Let's define a new anonymous function that uses the add anonymous function we have previously defined:
 
-    iex> double = fn a -> add.(a, a) end
+    iex> double = fn(a) -> add.(a, a) end
     #Function<6.71889879/1 in :erl_eval.expr/5>
     iex> double.(2)
     4
@@ -253,18 +253,18 @@ Getting the *head* or the *tail* of an empty list throws an error:
     iex> hd []
     ** (ArgumentError) argument error
 
-Sometimes you will create a list and it will return a value in single quotes. For example:
+Sometimes you will create a list and it will return a value as characters. For example:
 
     iex> [11, 12, 13]
-    '\v\f\r'
+    ~c"\v\f\r"
     iex> [104, 101, 108, 108, 111]
-    'hello'
+    ~c"hello"
 
 When Elixir sees a list of printable ASCII numbers, Elixir will print that as a *charlist* (literally a list of characters). Charlists are quite common when interfacing with existing Erlang code. Whenever you see a value in IEx and you are not quite sure what it is, you can use the **i/1** to retrieve information about it:
 
-    iex> i 'hello'
+    iex> i ~c"hello"
     Term
-        'hello'
+        ~c"hello"
     Data type
         List
     Description
@@ -276,12 +276,12 @@ When Elixir sees a list of printable ASCII numbers, Elixir will print that as a 
     Implemented protocols
         ...
 
-Keep in mind single-quoted and double-quoted representations are not equivalent in Elixir as they are represented by different types:
+Keep in mind character list and string are not equivalent in Elixir as they are represented by different types:
 
-    iex> 'hello' == "hello"
+    iex> ~c"hello" == "hello"
     false
 
-Single quotes are *charlists*, double quotes are *strings*. We will discuss more about them in later sessions.
+~c"" indicates *charlist*, double quotes are *strings*. We will discuss more about them in later sessions.
 
 &nbsp;
 ### **Tuples**
@@ -289,7 +289,7 @@ Elixir uses curly brackets to define tuples. Like lists, tuples can hold any val
 
     iex> {:ok, "hello"}
     {:ok, "hello"}
-    iex> tuple_size {:ok, "hello"}
+    iex> tuple_size({:ok, "hello"})
     2
 
 Tuples store elements contiguously in memory. This means accessing a tuple element by index or getting the tuple size is a fast operation. Indexes start from zero:
