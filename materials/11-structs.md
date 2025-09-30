@@ -20,7 +20,7 @@ Structs are extensions built on top of maps that provide compile-time checks and
 To define a struct, the defstruct construct is used. Create a new file **modules.ex** and define a struct:
 
     defmodule User do
-        defstruct name: "John", age: 27
+        defstruct [name: "John", age: 27]
     end
 
 The keyword list used with defstruct defines what fields the struct will have along with their default values.
