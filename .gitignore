@@ -1,10 +1,5 @@
 playground.exs
 
-leason-00.md
-leason-01.md
-leason-02.md
-leason-03.md
-leason-04.md
-leason-05.md
-leason-06.md
-leason-07.md
+leason-00-fucntional-programming.md
+leason-01-operators.md
+leason-02-pattern-matching.md
